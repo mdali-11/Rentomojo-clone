@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120px" height="120px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>relocation</title>
+    <desc>Created with Sketch.</desc>
+    <g id="relocation" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons-/-Benefits/green/-relocate-for-free---green">
+            <g id="Group" transform="translate(1.000000, 2.000000)">
+                <polyline id="Stroke-1" stroke="#313131" stroke-width="0.423" stroke-linecap="round" stroke-linejoin="round" points="14.3681 9.7231 10.1061 13.9851 5.9971 9.8741"></polyline>
+                <path d="M5.9979,9.8745 C5.0099,8.8485 4.4009,7.4535 4.4009,5.9165 C4.4009,2.7655 6.9559,0.2115 10.1059,0.2115 C13.2579,0.2115 15.8109,2.7655 15.8109,5.9165 C15.8109,7.3765 15.2639,8.7075 14.3619,9.7165" id="Stroke-3" stroke="#313131" stroke-width="0.423" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M13.5946,5.8437 C13.5946,7.7697 12.0326,9.3317 10.1066,9.3317 C8.1806,9.3317 6.6186,7.7697 6.6186,5.8437 C6.6186,3.9177 8.1806,2.3567 10.1066,2.3567 C12.0326,2.3567 13.5946,3.9177 13.5946,5.8437" id="Fill-5" fill="#4DDFD2"></path>
+                <path d="M13.5946,5.8437 C13.5946,7.7697 12.0326,9.3317 10.1066,9.3317 C8.1806,9.3317 6.6186,7.7697 6.6186,5.8437 C6.6186,3.9177 8.1806,2.3567 10.1066,2.3567 C12.0326,2.3567 13.5946,3.9177 13.5946,5.8437 Z" id="Stroke-7" stroke="#313131" stroke-width="0.423" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M8.578,5.8437 C8.578,4.9997 9.263,4.3157 10.106,4.3157" id="Stroke-9" stroke="#313131" stroke-width="0.423" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M10.0106,13.9848 L3.9226,13.9848 L1.3106,12.5128" id="Stroke-11" stroke="#313131" stroke-width="0.423" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1.058"></path>
+                <path d="M1.3104,9.8413 C1.3104,10.1443 1.0644,10.3903 0.7614,10.3903 C0.4574,10.3903 0.2114,10.1443 0.2114,9.8413 C0.2114,9.5373 0.4574,9.2913 0.7614,9.2913 C1.0644,9.2913 1.3104,9.5373 1.3104,9.8413" id="Fill-13" fill="#4DDFD2"></path>
+                <path d="M1.3104,9.8413 C1.3104,10.1443 1.0644,10.3903 0.7614,10.3903 C0.4574,10.3903 0.2114,10.1443 0.2114,9.8413 C0.2114,9.5373 0.4574,9.2913 0.7614,9.2913 C1.0644,9.2913 1.3104,9.5373 1.3104,9.8413 Z" id="Stroke-15" stroke="#313131" stroke-width="0.423" stroke-linecap="round" stroke-linejoin="round"></path>
+                <g id="Group-20" transform="translate(0.000000, 10.196200)">
+                    <line x1="0.7616" y1="1.9795" x2="0.7616" y2="0.1945" id="Fill-17" fill="#313131"></line>
+                    <line x1="0.7616" y1="1.9795" x2="0.7616" y2="0.1945" id="Stroke-19" stroke="#313131" stroke-width="0.423" stroke-linecap="round" stroke-linejoin="round"></line>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

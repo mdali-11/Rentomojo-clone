@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <style>
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            margin: 0px auto 40px auto;
+            padding: 10px 5%;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        }
+
+        #navbar>div:nth-child(1) {
+            display: none;
+
+        }
+        #navbar>div:nth-child(2){
+            cursor: pointer;
+        }
+
+        /* #navbar>div:nth-child(2){
+            display: none;
+        } */
+        #location {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 20px;
+            cursor: pointer;
+        }
+
+        #location>img {
+            width: 50%;
+            margin: 0px 5px;
+        }
+
+        #navbar>div:nth-child(4) {
+            width: 50%;
+        }
+
+        #navbar>div:nth-child(4)>input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 16px;
+            border: 1px solid rgb(207, 207, 207);
+            background-color: rgb(247, 247, 247);
+            color: black;
+        }
+
+        #navbar>div:nth-child(4)>input:hover {
+            background-color: rgb(255, 255, 255);
+        }
+
+        #navbar>div:nth-child(5) {
+            width: 55px;
+            margin-left: 5px;
+        }
+
+        #navbar>div:nth-child(5)>img {
+            width: 100%;
+        }
+
+        #navbar>div:nth-child(6)>button {
+            color: white;
+            background-color: rgb(204, 3, 3);
+            border: 1px solid rgb(204, 3, 3);
+            /* border: none; */
+            border-radius: 10px;
+            padding: 15px 20px;
+        }
+
+        #navbar>div:nth-child(6)>button:hover {
+            background-color: white;
+            color: rgb(204, 3, 3);
+            border: 1px solid rgb(204, 3, 3);
+            border-radius: 10px;
+            padding: 15px 20px;
+        }
+
+        #search_down {
+            display: none;
+        }
+
+        #menu {
+            display: block;
+            position: fixed;
+            height: 100%;
+            width: 55%;
+            background-color: rgb(255, 255, 255);
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            top: 0px;
+            display: none;
+            z-index: 2;
+        }
+
+        #menu>div:nth-child(1) {
+            margin: 30px 20px 50px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #menu>div:nth-child(1)>div:nth-child(2) {
+            width: 25px;
+        }
+
+        #menu>div:nth-child(1)>div:nth-child(2)>img {
+            width: 100%;
+        }
+
+        #menu>div:nth-child(2) {
+            margin: 10px 0px 0px 40px;
+        }
+
+        #menu>div:nth-child(2)>ul>li {
+            list-style-type: none;
+            padding: 5px;
+            margin: 25px 0px;
+        }
+
+        #menu>div:nth-child(2)>ul>li>a {
+            text-decoration: none;
+            color: rgb(126, 126, 126);
+        }
+
+        #dropdown_menu_close {
+            cursor: pointer;
+        }
+
+        #dropdown_menu_open {
+            cursor: pointer;
+        }
+
+        #location_box {
+            position: fixed;
+            top: 50px;
+            width: 70%;
+            left: 15%;
+            margin: auto;
+            background-color: white;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            /* display: grid; */
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            display: none;
+            z-index: 2;
+
+        }
+
+        #location_box>div {
+            cursor: pointer;
+        }
+
+        #location_box>div:nth-child(1) {
+            grid-area: 1/1/2/5;
+            width: 150px;
+            margin: 20px auto;
+        }
+
+        #location_box>div:nth-child(1)>button {
+            background-color: rgb(214, 214, 214);
+            border-radius: 0px;
+            padding: 10px 30px;
+            border: 1px solid rgb(205, 205, 205);
+            font-size: 20px;
+            width: 100%;
+            color: rgb(84, 84, 84);
+
+        }
+
+        #location_box>div:nth-child(1)>button:hover {
+            background-color: white;
+
+
+        }
+
+        @media all and (max-width:1000px) {
+            #navbar {
+                width: 100%;
+                padding: 10px 0px;
+                margin-bottom: 0px;
+                box-shadow: none;
+            }
+
+            #navbar>div:nth-child(1) {
+                display: block;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-left: 15px;
+            }
+
+            #navbar>div:nth-child(1)>img:nth-child(1) {
+                margin-left: 15px;
+            }
+
+            #navbar>div:nth-child(1)>img:nth-child(2) {
+                margin-left: 15px;
+            }
+
+            #navbar>div:nth-child(2) {
+                display: none;
+            }
+
+            #navbar>div:nth-child(3) {
+                display: none;
+            }
+
+            #navbar>div:nth-child(4) {
+                display: none;
+            }
+
+            #navbar>div:nth-child(6) {
+                display: none;
+            }
+
+            #navbar>div:nth-child(5) {
+                margin-right: 15px;
+            }
+
+            #search_down {
+                display: block;
+                width: 80%;
+                margin: 0px auto 20px auto;
+            }
+
+            #search_down>input {
+                width: 100%;
+                padding: 10px;
+                border-radius: 10px;
+                font-size: 16px;
+                border: 1px solid rgb(207, 207, 207);
+                background-color: rgb(247, 247, 247);
+                color: black;
+            }
+        }
+
+
+        /* this is login signup */
+        #login_popup {
+            width: 64vw;
+            /* height: 80vh; */
+            position: fixed;
+            top: 10vh;
+            left: 18vw;
+            /* padding: 20px; */
+            border-radius: 30px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            display: flex;
+            justify-content: space-between;
+            display: none;
+            background-color: white;
+            z-index: 2;
+        }
+
+        #login_popup>div:nth-child(1) {
+            width: 45%;
+            margin-left: 40px;
+            margin-right: 20px;
+        }
+
+        #login_popup>div:nth-child(1)>img {
+            width: 90%;
+        }
+
+        #login_popup>div:nth-child(2) {
+            width: 45%;
+            padding-top: 40px;
+            padding-right: 50px;
+        }
+
+        #login_popup>div:nth-child(2)>label {
+            margin-top: 20%;
+        }
+
+        #login_popup>div:nth-child(2)>input {
+            width: 100%;
+            margin-top: 4px;
+            padding: 5px;
+        }
+
+        #login_popup>div:nth-child(2)>button {
+            width: 100%;
+            margin-top: 55%;
+            padding: 5px;
+        }
+
+        @media all and (max-width:900px) {
+            #login_popup_img {
+                display: none;
+            }
+
+            #login_popup>div:nth-child(2) {
+                width: 70%;
+                padding: 40px;
+                margin: auto;
+            }
+        }
+
+        /* navbar ended here  */
+
+        #emptyCart{
+            max-width: 400px ;
+            margin: 60px auto;
+        }
+        #emptyCart>img{
+            width: 100%;
+        }
+        #emptyCart>h1{
+            text-align: center;
+        }
+        #emptyCart>p{
+            text-align: center;
+            color: rgb(124, 124, 124);
+        }
+        #emptyCart>div{
+            width: 170px;
+            margin: 10px auto;
+        }
+        #emptyCart>div>button{
+            width: 100%;
+            padding: 8px 2px;
+            font-size: 16px;
+            color: white;
+            background-color: rgb(229, 57, 57);
+            border: 1px solid rgb(229, 57, 57);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar">
+        <div><img src="https://www.rentomojo.com/public/images/Home/new/ham__icon.svg" id="dropdown_menu_open"
+                alt=""><img src="https://www.rentomojo.com/public/images/Home/new/logo.svg" alt=""></div>
+        <div onclick="goToHome()"><img src="https://www.rentomojo.com/public/images/logo.svg" alt=""></div>
+        <div>
+            <div id="location">
+                <p id="change_location">Delhi</p><img
+                    src="https://cdn.icon-icons.com/icons2/1904/PNG/512/downarrow_121316.png" alt="">
+            </div>
+        </div>
+        <div><input type="text" id="nav_search" oninput="nav_search_fn()" placeholder="Search for Product"></div>
+        <div><img src="img/cart.png" onclick="cart_clicked()" alt=""></div>
+        <div><button id="home_login_button" >LOGIN/SIGNUP</button></div>
+    </div>
+    <div id="menu">
+        <div>
+            <div><img src="https://www.rentomojo.com/public/images/logo.svg" alt=""></div>
+            <div><img id="dropdown_menu_close"
+                    src="data:image/png;base64,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"
+                    alt=""></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="" onclick="show_login_popup()">Login/Signup</a></li>
+                <li><a href="">Categories</a></li>
+                <li><a href="">Read More</a></li>
+                <li><a href="">Need Help</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="location_box">
+        <div><button id="location_box_close">Close</button></div>
+    </div>
+    <div id="search_down">
+        <input type="text" id="nav_search_down" oninput="nav_search_fn()" placeholder="Search for Product">
+    </div>
+    <!-- loginsignup started -->
+    <div id="login_popup">
+        <div id="login_popup_img"><img src="img/login_side.png" alt=""></div>
+        <div>
+            <label for="">Enter Your Number to Login or Signup</label>
+            <input type="text" id="login_phone_data" placeholder="Enter Phone Number*">
+            <input type="text" id="login_name_data" placeholder="Enter Name*">
+            <input type="text" name="" id="login_otp_data" placeholder="Enter OTP">
+            <button id="login_data_submit_button">Continue</button>
+        </div>
+    </div>
+
+
+    <div id="emptyCart">
+        <img src="https://www.rentomojo.com/public/images/error/no-cart.png" alt="">
+        <h1>No Items in Cart</h1>
+        <p>Add a few items to your cart and come back here for an
+            express checkout process!</p>
+            <div><button onclick="goToHome()">Browse catalogue</button></div>
+        
+    </div>
+    <div id="checkout"></div>
+    <div id="cart"></div>
+</body>
+<script>
+    // navbar started
+    let dropdown_menu_open = document.getElementById("dropdown_menu_open");
+    dropdown_menu_open.addEventListener("click", function () {
+        let menu = document.getElementById("menu");
+        menu.style.display = "block";
+    });
+    let dropdown_menu_close = document.getElementById("dropdown_menu_close");
+    dropdown_menu_close.addEventListener("click", function () {
+        let menu = document.getElementById("menu");
+        menu.style.display = "none";
+    });
+    let location_data = [];
+    class location_obj {
+        constructor(name, img) {
+            this.name = name;
+            this.img = img;
+        }
+    }
+    let city1 = new location_obj("Hyderabad", "img/hyderabad_location.png");
+    let city2 = new location_obj("Chennai", "img/chennai_location.png");
+    let city3 = new location_obj("Gurgaon", "img/gurgaon_location.png");
+    let city4 = new location_obj("Noida", "img/noida_location.png");
+    let city5 = new location_obj("Delhi", "img/delhi_location.png");
+    let city6 = new location_obj("Mumbai", "img/mumbai_location.png");
+    let city7 = new location_obj("Pune", "img/pune_location.png");
+
+    location_data.push(city1, city2, city3, city4, city5, city6, city7);
+    showInLocationBox(location_data);
+    function showInLocationBox(data) {
+        let box = document.getElementById("location_box");
+        data.forEach(function (e) {
+            let div = document.createElement("div");
+            box.append(div);
+            let img = document.createElement("img");
+            img.src = e.img;
+            div.append(img);
+            div.addEventListener("click", function () {
+                let p = document.getElementById("change_location");
+                p.innerText = e.name;
+            })
+        })
+    }
+    let location_box_open = document.getElementById("location");
+    location_box_open.addEventListener("click", function () {
+        let box = document.getElementById("location_box");
+        box.style.display = "grid";
+    });
+    let location_box_close = document.getElementById("location_box_close");
+    location_box_close.addEventListener("click", function () {
+        let box = document.getElementById("location_box");
+        box.style.display = "none";
+    });
+
+    // search function
+    function nav_search_fn(){
+        let se=document.getElementById("nav_search").value;
+        if(se=="bed"){
+            window.location.href="furniture.html";
+        }else if(se=="refrigerator"){
+            window.location.href="appliances.html";
+
+        }
+    }
+    //cart data
+
+    let cartArr=JSON.parse(localStorage.getItem("cartpage")) || []; 
+    function cart_clicked(){
+        let login_status=JSON.parse(localStorage.getItem("loginsuccess"));
+        if(login_status==true){
+            window.location.href="cart.html";
+        }else{
+            alert("Login first!!");
+        }
+    }
+
+    // login signup started
+    function show_login_popup() {
+        let menu = document.getElementById("menu");
+        menu.style.display = "none";
+        let but = document.getElementById("home_login_button");
+        if (but.innerText == "LOGIN/SIGNUP") {
+            let div = document.getElementById("login_popup");
+            div.style.display = "flex";
+        } else {
+            localStorage.setItem("user_login_data", null);
+            localStorage.setItem("loginsuccess", false);
+            but.innerText = "LOGIN/SIGNUP";
+            alert("Logout Success!!!");
+            window.location.href="index.html";
+        }
+    }
+    document.addEventListener("mouseup", function (e) {
+        let div = document.getElementById("login_popup");
+        if (!div.contains(e.target)) {
+            div.style.display = "none";
+        }
+    })
+    let login_data_submit_button = document.getElementById("login_data_submit_button");
+    login_data_submit_button.addEventListener("click", function () {
+        let phone = document.getElementById("login_phone_data").value;
+        let name = document.getElementById("login_name_data").value;
+        let otp = document.getElementById("login_otp_data").value;
+        if (phone == "" || name == "" || otp == "") {
+            alert("Fill All Inputs");
+        } else {
+            if (otp == "1234") {
+                let obj = {
+                    name: name,
+                    mobile: phone,
+                }
+                localStorage.setItem("user_login_data", JSON.stringify(obj));
+                localStorage.setItem("loginsuccess", true);
+                show_name_login_user();
+                alert("Login successfull");
+            } else {
+                alert("OTP not match");
+            }
+        }
+    })
+    show_name_login_user();
+
+    function show_name_login_user() {
+        if (localStorage.getItem("user_login_data") == null) {
+            localStorage.setItem("loginsuccess", false);
+        } else {
+            localStorage.setItem("loginsuccess", true);
+            let details = JSON.parse(localStorage.getItem("user_login_data"));
+            let but = document.getElementById("home_login_button");
+            but.innerText = details.name;
+        }
+    }
+
+    function  goToHome(){
+        window.location.href="index.html";
+    }
+    // navbar ended
+    if(localStorage.getItem("cartpage")==null || localStorage.getItem("cartpage")=="null" ){
+        
+        // let box=document.querySelector("body");
+        // let div=document.createElement("div");
+        // div.innerText="Cart is Empty!!";
+        // div.style.textAlign="center";
+        // div.style.marginTop="20vh";
+        // div.style.fontSize="22px"
+        // let div1=document.createElement("div");
+        // div1.innerText="Go Back...";
+        // div1.style.textAlign="center";
+        // div1.style.fontSize="18px"
+        // div1.style.color="blue";
+        // div1.style.cursor="pointer"
+        // div1.addEventListener("click",function(){
+        //     window.location.href="index.html"
+        // })
+        // box.append(div,div1);
+    }else{
+        let cartArr=JSON.parse(localStorage.getItem("cartpage"));
+        function displayCart(data){
+            let tot=0;
+            let checkout=document.getElementById("checkout");
+            checkout.innerHTML="";
+            let box=document.getElementById("cart");
+            box.innerHTML="";
+            let total=document.createElement("div");
+            total.setAttribute("id","carttotal");
+            let tot1=document.createElement("h1");
+            let tot2=document.createElement("button");
+            tot2.innerText="Checkout";
+            tot2.addEventListener("click",function(){
+                alert("Your order is confirmed!!");
+                localStorage.setItem("cartpage",null);
+                window.location.href="index.html";
+            })
+            total.append(tot1,tot2);
+            checkout.append(total);
+            data.forEach((e,i)=>{
+                let div=document.createElement("div");
+                div.setAttribute("class","cartItem");
+                box.append(div);
+                let img=document.createElement("img");
+                img.src=e.img;
+                let name=document.createElement("h2");
+                name.innerText=e.title;
+                let price=document.createElement("h3");
+                price.innerText="$"+e.price;
+                tot=tot+Number(e.price);
+                let remove=document.createElement("button");
+                remove.innerText="Remove";
+                remove.addEventListener("click",function(){
+                    cartArr.splice(i,1);
+                    localStorage.setItem("cartpage",JSON.stringify(cartArr));
+                    displayCart(cartArr);
+                });
+                div.append(img,name,price,remove);
+            });
+            tot1.innerText="Total is :- $"+tot;
+        }
+        displayCart(cartArr);
+    }
+</script>
+</html>

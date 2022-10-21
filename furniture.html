@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furniture</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto Condensed' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet'>
+
+
+    
+    <style>
+#navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            margin: 0px auto 40px auto;
+            padding: 10px 5%;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        }
+
+        #navbar>div:nth-child(1) {
+            display: none;
+
+        }
+        #navbar>div:nth-child(2){
+            cursor: pointer;
+        }
+
+        /* #navbar>div:nth-child(2){
+            display: none;
+        } */
+        #location {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 20px;
+            cursor: pointer;
+        }
+
+        #location>img {
+            width: 50%;
+            margin: 0px 5px;
+        }
+
+        #navbar>div:nth-child(4) {
+            width: 50%;
+        }
+
+        #navbar>div:nth-child(4)>input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 16px;
+            border: 1px solid rgb(207, 207, 207);
+            background-color: rgb(247, 247, 247);
+            color: black;
+        }
+
+        #navbar>div:nth-child(4)>input:hover {
+            background-color: rgb(255, 255, 255);
+        }
+
+        #navbar>div:nth-child(5) {
+            width: 55px;
+            margin-left: 5px;
+        }
+
+        #navbar>div:nth-child(5)>img {
+            width: 100%;
+        }
+
+        #navbar>div:nth-child(6)>button {
+            color: white;
+            background-color: rgb(204, 3, 3);
+            border: 1px solid rgb(204, 3, 3);
+            /* border: none; */
+            border-radius: 10px;
+            padding: 15px 20px;
+        }
+
+        #navbar>div:nth-child(6)>button:hover {
+            background-color: white;
+            color: rgb(204, 3, 3);
+            border: 1px solid rgb(204, 3, 3);
+            border-radius: 10px;
+            padding: 15px 20px;
+        }
+
+        #search_down {
+            display: none;
+        }
+
+        #menu {
+            display: block;
+            position: fixed;
+            height: 100%;
+            width: 55%;
+            background-color: rgb(255, 255, 255);
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            top: 0px;
+            display: none;
+            z-index: 2;
+        }
+
+        #menu>div:nth-child(1) {
+            margin: 30px 20px 50px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #menu>div:nth-child(1)>div:nth-child(2) {
+            width: 25px;
+        }
+
+        #menu>div:nth-child(1)>div:nth-child(2)>img {
+            width: 100%;
+        }
+
+        #menu>div:nth-child(2) {
+            margin: 10px 0px 0px 40px;
+        }
+
+        #menu>div:nth-child(2)>ul>li {
+            list-style-type: none;
+            padding: 5px;
+            margin: 25px 0px;
+        }
+
+        #menu>div:nth-child(2)>ul>li>a {
+            text-decoration: none;
+            color: rgb(126, 126, 126);
+        }
+
+        #dropdown_menu_close {
+            cursor: pointer;
+        }
+
+        #dropdown_menu_open {
+            cursor: pointer;
+        }
+
+        #location_box {
+            position: fixed;
+            top: 50px;
+            width: 70%;
+            left: 15%;
+            margin: auto;
+            background-color: white;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            /* display: grid; */
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            display: none;
+            z-index: 2;
+
+        }
+
+        #location_box>div {
+            cursor: pointer;
+        }
+
+        #location_box>div:nth-child(1) {
+            grid-area: 1/1/2/5;
+            width: 150px;
+            margin: 20px auto;
+        }
+
+        #location_box>div:nth-child(1)>button {
+            background-color: rgb(214, 214, 214);
+            border-radius: 0px;
+            padding: 10px 30px;
+            border: 1px solid rgb(205, 205, 205);
+            font-size: 20px;
+            width: 100%;
+            color: rgb(84, 84, 84);
+
+        }
+
+        #location_box>div:nth-child(1)>button:hover {
+            background-color: white;
+
+
+        }
+
+        @media all and (max-width:1000px) {
+            #navbar {
+                width: 100%;
+                padding: 10px 0px;
+                margin-bottom: 0px;
+                box-shadow: none;
+            }
+
+            #navbar>div:nth-child(1) {
+                display: block;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-left: 15px;
+            }
+
+            #navbar>div:nth-child(1)>img:nth-child(1) {
+                margin-left: 15px;
+            }
+
+            #navbar>div:nth-child(1)>img:nth-child(2) {
+                margin-left: 15px;
+            }
+
+            #navbar>div:nth-child(2) {
+                display: none;
+            }
+
+            #navbar>div:nth-child(3) {
+                display: none;
+            }
+
+            #navbar>div:nth-child(4) {
+                display: none;
+            }
+
+            #navbar>div:nth-child(6) {
+                display: none;
+            }
+
+            #navbar>div:nth-child(5) {
+                margin-right: 15px;
+            }
+
+            #search_down {
+                display: block;
+                width: 80%;
+                margin: 0px auto 20px auto;
+            }
+
+            #search_down>input {
+                width: 100%;
+                padding: 10px;
+                border-radius: 10px;
+                font-size: 16px;
+                border: 1px solid rgb(207, 207, 207);
+                background-color: rgb(247, 247, 247);
+                color: black;
+            }
+        }
+
+
+        /* this is login signup */
+        #login_popup {
+            width: 64vw;
+            /* height: 80vh; */
+            position: fixed;
+            top: 10vh;
+            left: 18vw;
+            /* padding: 20px; */
+            border-radius: 30px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            display: flex;
+            justify-content: space-between;
+            display: none;
+            background-color: white;
+            z-index: 2;
+        }
+
+        #login_popup>div:nth-child(1) {
+            width: 45%;
+            margin-left: 40px;
+            margin-right: 20px;
+        }
+
+        #login_popup>div:nth-child(1)>img {
+            width: 90%;
+        }
+
+        #login_popup>div:nth-child(2) {
+            width: 45%;
+            padding-top: 40px;
+            padding-right: 50px;
+        }
+
+        #login_popup>div:nth-child(2)>label {
+            margin-top: 20%;
+        }
+
+        #login_popup>div:nth-child(2)>input {
+            width: 100%;
+            margin-top: 4px;
+            padding: 5px;
+        }
+
+        #login_popup>div:nth-child(2)>button {
+            width: 100%;
+            margin-top: 55%;
+            padding: 5px;
+        }
+
+        @media all and (max-width:900px) {
+            #login_popup_img {
+                display: none;
+            }
+
+            #login_popup>div:nth-child(2) {
+                width: 70%;
+                padding: 40px;
+                margin: auto;
+            }
+        }
+        /* navbar ended here  */
+        *{
+            font-family:'Muli';
+        }
+
+
+        .top {
+            height: 50px;
+            background-color: #FAFAFA;
+        }
+        .top>div div{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+        .top>div{
+            width: 75%;
+            margin: auto;
+            display:flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+        }
+        #product_box{
+            width: 75%;
+            margin: auto;
+            display: flex;
+            margin-bottom: 100px;
+            /* border: 5px solid black; */
+            justify-content: space-between;
+            gap: 30px;
+
+        }
+        #sidebar{
+            margin-top: 30px;
+            width: 20%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 12px;
+            color: #717171;
+            margin-right: 50px;
+        
+        }
+        #sidebar>div{
+            margin-bottom: 25px;
+        }
+        #product_containor{
+            width: 90%;
+            margin: auto;
+            display: grid;
+            margin-top: 100px;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px 50px;
+            /* border: 5px solid blue; */
+        }
+        .a{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        input+p{
+            display: inline;
+        }
+        input[type="checkbox"]{
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        .checkbox div{
+            width: 75%;
+         display: flex;
+         justify-content: flex-start;
+         align-items: center;
+         gap: 15px;
+        }
+        .product_cards{
+            position: relative;
+        }
+       .product_cards .view{
+        position: absolute;
+        opacity: 0;
+        transition: 0s;
+            /* display: none; */
+            
+        }
+        .product_cards:hover .view{
+            background-color: #fff;
+            opacity: 1;
+            transition-delay: 0.3s;
+            z-index: 1;
+            /* display: block; */
+            
+        }
+   
+        #viewbtn{
+            margin-top: 15px;           
+            padding: 10px 85px;
+            border-radius: 15px;
+            font-size: 15px;
+            color: #1DBDC0;
+            border:0.5px solid #1DBDC0;
+            background-color: transparent;
+            cursor: pointer;
+        }
+        .mo{
+            color: #717171;
+        }
+        #months{
+            width: 95%;
+            height: 5px;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+        #month_number{
+            width: 95%;
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+        }
+        @media all and (min-width:320px) and (max-width:500px){
+            #product_box{
+                width: 100%;
+            }
+
+            #product_containor{
+                width: 85%;
+                margin: auto;
+                grid-template-columns: repeat(1,1fr);
+            }
+            #sidebar{
+                display: none;
+            }
+        }
+
+        @media all and (min-width:500px) and (max-width:800px){
+            #product_box{
+                width: 100%;
+            }
+            #product_containor{
+                width: 90%;
+                margin: auto;
+                grid-template-columns: repeat(2,1fr);
+            }
+            #sidebar{
+                display: none;
+            }
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div id="navbar">
+        <div><img src="https://www.rentomojo.com/public/images/Home/new/ham__icon.svg" id="dropdown_menu_open"
+                alt=""><img src="https://www.rentomojo.com/public/images/Home/new/logo.svg" alt=""></div>
+        <div onclick="goToHome()"><img src="https://www.rentomojo.com/public/images/logo.svg" alt=""></div>
+        <div>
+            <div id="location">
+                <p id="change_location">Delhi</p><img
+                    src="https://cdn.icon-icons.com/icons2/1904/PNG/512/downarrow_121316.png" alt="">
+            </div>
+        </div>
+        <div><input type="text" id="nav_search" oninput="nav_search_fn()" placeholder="Search for Product"></div>
+        <div><img src="img/cart.png"  onclick="cart_clicked()" alt=""></div>
+        <div><button id="home_login_button" onclick="show_login_popup()">LOGIN/SIGNUP</button></div>
+    </div>
+    <div id="menu">
+        <div>
+            <div><img src="https://www.rentomojo.com/public/images/logo.svg" alt=""></div>
+            <div><img id="dropdown_menu_close"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAWlBMVEX///8AAAC1tbWysrKenp6rq6unp6eurq64uLhlZWWioqLHx8diYmJubm6oqKihoaGEhIRdXV2Xl5d0dHR+fn6Li4tvb296enppaWlYWFi9vb3MzMyDg4OSkpLl8kOMAAAGBUlEQVR4nN2d23abMBBFwWlqXNLm2kvi5P9/s4uM5YDNERLoMmf2KzbWXnNGEMdITTOif2ss8NajI33bdiVHkomubYHisW0tKHaDxnHuyKcgv2InGjOKfXtiV35UCdk5jaugngW5q9h9aVwoHtvWgmI31pgEtW8nsAZ1N9UYVfFCkFVxd6lxVrwS5Axqd61xUpwRZFScETwpzgryBfUqomdFIMimCAQHxQM6RKUIBdtD0zwaUMSCj8PhO3j4pvbIA7mBBnfyAvYqLlRw4JVaEQu+fr2IOaiLERXwjKpdEQsepi/EvahbEQs+Xr6UUzFCkDOowREV+BQjBfmCGhVRgeuiEV3BgX/wTftyIw9kD8f6z/c2nl5cVcEBll5c0YMOjqCujKjAoLhJkGFGDbzZxuDpRkcVcQUXJpkvcFBvc448kFs4uqCICpp7cWMPOnAv1lbEgoE96NAa1CQRFX6qVMSCP+NPprEXE/WgQ99FI8FlYoq2oOKI/ll7Sl2KGQR9QS2vmHAWHaPnopF0Fh3zB574V5qRB/ILjmNDRAUdvZilBx0agpqpBx31g4oj+pzmA54rK2YXrN2L2WbRMTUViwj6gvo95cfM8B1+crKICrV6sUAPOnBQcypiwaQRFWoEtVhEhfKKWPBvng8s3YsFe9BR9u4m48025i/80B/JP+sH/KxMERWwYupeLN6DjlLTTeFZdEwZxYqCZXqxUg868vditR505A5q1YgKeYNaOaICVrzffO57eO6XBCMPJl8VVVRwAPfiNkU1gk3zAoeyJahKIipgxfVVxBWsIJijFxVFVEg9o6qKqICD+m3F2b7Bs70nH3kwKXtRWQ860gUVR7RSDzpSBVVlRIU0iooF01z6Fc6iY7YrKhdsmnc4wLCg4og+ZB55MNsUCQS3TTdYUElEhfVVVD2LjnmAA33yvu8Jvk9RRIV1VaToQceaXqSJqBAfVKKIClhxvoq4gr8LjzyYuF6k6kFHjCKlYEwv4h5UG1EhtBcJe9ARFlTSiAohQaWNqPB7UZFccLmK9IJLinR3MnP4gmqgggNYET8OTyXoC6oRQV8VjQjGKhIKxilSCsb0IqlgeBU/ag90PWGKxIJhirQRFZYVyQWb5sNyRAW/ogFBf1DpIyrgxUNfl9/MgPkamu9D83Op+euh+Xsa8/el5v+2MP/3ofm/8c1/T2P+uzbz35ea/84bC354buOIFM3/78n8/w99ERXIg2r+//j4txjjX9QQ92LoT4Zoq2j+N1FhERUogxojSKkY+xNauqCa/42w+d95m/+tvvnnLeJm0TFYUVVQzT/3ZP7ZtfURFdT34vYngZUHNcWjzqoVzT/Lbf55fLymQuzKGFix6poKKZfhUfnIuvm1TdJFVFA3o6Zf0kzZ+iY5lsJS1Ytpe9ChKKjm12szv+ae+XUTcwqqmFFz9aADB7XQ+qX5l9lVu8huiogKVYOaO6JCxaCaX8+73LLz6hadN7KuPt4bIccOFzio2fZGKL2FR/FeLDOLjikcVPP7zOC9gnLu+IQVk+8VVGtLKwUbWhnZs6vOdlZCkU2tagoWUawXUSF7UMveycyRWdH8PqTm95KtH1Eh2224hogKmTbrNL8vt44edBTdPL7sntyO5NsF4oju0448mD0c0WHN6fAkU0vQp7iiF3X1oCPhjKrnMjEl2Yx6B09UL6ICDupdzGk09qAjSS9qjaiQIKj6LhNTNl809PagY2Mvau5Bx6ZeZBDcpIgfJr8pMfJgbuA4H/1vxJOMLkGfone64YiosCqoeBbVVsGBFVVk6UFHdC/y9KAjsora72TmiLq7YYuoEBFUTsEIRb4edAT2ItdlYgpWHN2G4+U3d/VGHswOjv68eCjuQQZBn+KpF5kjKiwElb2CA94q4lmUR9CneGh6C4Iexb5Biiw96AC92A/HZhW72iOOpoOCs4p8grOKvTt2pcjVg46rXuy/jvUWBK8U+/GxI3tEhUlQj9NjvQXBiWJ/eeysyBpRYQcFz0FlruBANxtR4WhB8KQ4K/gZVH7BT8WZiAr9W8mRZONtIvgfZlFV9o8OQ9EAAAAASUVORK5CYII="
+                    alt=""></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="" onclick="show_login_popup()">Login/Signup</a></li>
+                <li><a href="">Categories</a></li>
+                <li><a href="">Read More</a></li>
+                <li><a href="">Need Help</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="location_box">
+        <div><button id="location_box_close">Close</button></div>
+    </div>
+    <div id="search_down">
+        <input type="text" id="nav_search_down" oninput="nav_search_fn()" placeholder="Search for Product">
+    </div>
+    <!-- loginsignup started -->
+    <div id="login_popup">
+        <div id="login_popup_img"><img src="img/login_side.png" alt=""></div>
+        <div>
+            <label for="">Enter Your Number to Login or Signup</label>
+            <input type="text" id="login_phone_data" placeholder="Enter Phone Number*">
+            <input type="text" id="login_name_data" placeholder="Enter Name*">
+            <input type="text" name="" id="login_otp_data" placeholder="Enter OTP">
+            <button id="login_data_submit_button">Continue</button>
+        </div>
+    </div>
+
+
+    <div class="top">
+        <div class="wid">
+        <div>
+            <p>Home > </p>
+            <p>Furniture ></p>
+        </div>
+        <div>
+            <p>Packages</p>
+            <p>Furniture</p>
+            <p>Appliances</p>
+            <p>Electronics</p>
+            <p>Fitness</p>
+        </div>
+        </div>
+    </div>
+    <div id="product_box">
+        <div id="sidebar">
+            <div class="a">
+                <p>Filters</p>
+                <button>Reset</button>
+            </div>
+            <div class="slider">
+                <h3>CHOOSE RENTAL TENURE</h3>
+                <input type="range" id="months" min="0" value="0" max="2" step="1" list="volsettings">
+<datalist id="volsettings">
+  <option>0</option>
+  <option>1</option>
+  <option>2</option>
+</datalist>
+<div id="month_number">
+    <p>3</p>
+    <p>6</p>
+    <p>12</p>
+</div>
+
+
+            </div>
+
+            <div class="check">
+                <h3>PRODUCT TYPE</h3>
+                <div class="checkbox">
+
+                   <div> <input type="checkbox" id="bedroom" value="bedroom"><p>Bedroom</p></div>
+                   <div>  <input type="checkbox" id="living" value="living_room"><p>Living Room</p></div>
+                    <div> <input type="checkbox" id="baby" value="baby_furniture"><p>Baby Furniture</p></div>
+                        <div>  <input type="checkbox" id="kitchen" value="kitchen"><p>Kitchen nd Dining</p></div>
+                            <div>  <input type="checkbox" id="wfh" value="wfh"><p>WFH</p></div>
+                </div>
+            
+            </div>
+
+        </div>
+        <div id="product_containor">
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+let livingroom_data=[{
+img:"https://i.ibb.co/ssZb2yY/xn610pga-500x500.jpg",
+title:"Felix 1-Seater Sofa",
+price:"379",
+    rent:"Rent ₹379/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+},
+{
+img:"https://i.ibb.co/kxjvNFb/is70bee5-500x500.jpg",
+title:"Oliver 3-Seater Sofa (Blue)",
+price:"559",
+    rent:"Rent ₹559/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+},{
+img:"https://i.ibb.co/BcX67Mn/tyjcmnwb-500x500.jpg",
+title:"Pixar TV Unit",
+price:"239",
+    rent:"Rent ₹239/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+},{
+img:"",
+title:"Saddle Shoe Rack Large",
+price:"189",
+    rent:"Rent ₹189/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+},{
+img:"https://i.ibb.co/dQ40d5g/6jks7lk8-500x500.jpg",
+title:"Felix 3-Seater Sofa (Black)",
+price:"789",
+    rent:"Rent ₹789/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+},{
+img:"https://i.ibb.co/NsKN4h2/lfg6bk2a-500x500.jpg",
+title:"Rex 3-Seater Sofa",
+price:"659",
+    rent:"Rent ₹659/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+},{
+img:"https://i.ibb.co/kxb6h2J/tqddqxw9-500x500.jpg",
+title:"Rex 1-Seater Sofa (Black)",
+price:"319",
+    rent:"Rent ₹319/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+},{
+img:"https://i.ibb.co/gzzZwfv/0qiq5edb-500x500.jpg",
+title:"Barney Leather Decliner (Brown)",
+price:"799",
+    rent:"Rent ₹799/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+},{
+img:"https://i.ibb.co/HTQsy9J/sc4mwkso-500x500.jpg",
+title:"Chesire Fbric Sofa Cum Bed (Green)",
+price:"1049",
+    rent:"Rent ₹1049/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+},{
+img:"https://i.ibb.co/WFSk67G/5jxsekke-500x500.jpg",
+title:"Velma 3-Seater Sofa (Teal)",
+price:"489",
+    rent:"Rent ₹489/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+},{
+img:"https://i.ibb.co/YhHQS2d/cl07o74j-500x500.jpg",
+title:"Robin Futon Red Large",
+price:"489",
+    rent:"Rent ₹489/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+},]
+
+let bedroom_data=[{
+    img:"https://i.ibb.co/Qv0cryh/dqu1k65a-500x500-1.jpg",
+    title:"Queen Foam Matress (6*5)",
+    price:"259",
+    rent:"Rent ₹259/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+    
+},
+{
+    img:"https://i.ibb.co/Qv0cryh/dqu1k65a-500x500-1.jpg",
+    title:"Queen Foam Matress (6*6)",
+    price:"299",
+    rent:"Rent ₹299/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+    
+},{
+    img:"https://i.ibb.co/Qv0cryh/dqu1k65a-500x500-1.jpg",
+    title:"Queen Foam Matress (6*3)",
+    price:"149",
+    rent:"Rent ₹149/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+    
+},{
+    img:"https://i.ibb.co/fkxdT64/ikl0fdjc-500x500-1.jpg",
+    title:"Napster Metal Single Bed (6*3)",
+    price:"249",
+    rent:"Rent ₹249/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+    
+},{
+    img:"https://i.ibb.co/6FKBBj0/j0xbbocy-500x500.jpg",
+    title:"Napster Metal Queen Bed (6*5)",
+    price:"319",
+    rent:"Rent ₹319/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+    
+},{
+    img:"https://i.ibb.co/HdKXHTj/7i306dfx-500x500.jpg",
+    title:"Aurora Wooden Queen Bed(6*5)",
+    price:"539",
+    rent:"Rent ₹539/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+    
+},{
+    img:"https://i.ibb.co/bNKGKXh/pemzyedy-500x500.jpg",
+    title:"Single LX Ortho Pocket Spring Mattress (6.6*3)",
+    price:"449",
+    rent:"Rent ₹449/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+},{
+    img:"https://i.ibb.co/6DSX76p/u5j0j47b-500x500.jpg",
+    title:"King Ortho Pocket Spring Mattress (6.6*6)",
+    price:"729",
+    rent:"Rent ₹729/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+    
+},]
+
+
+let kitchen_data=[{
+    img:"https://i.ibb.co/StDZZRd/jqccn9bx-500x500.jpg",
+    title:"Paise 4-Seater Dining Table & Chairs",
+    price:"799",
+    rent:"Rent ₹799/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+
+},
+{
+    img:"https://i.ibb.co/Tg78FFK/0ahsljnf-500x500.jpg",
+    title:"Heston 4-Seater Dining Table & Chairs",
+    price:"799",
+    rent:"Rent ₹799/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+    
+},{
+    img:"https://i.ibb.co/XScpwYJ/jagaq6ov-500x500.jpg",
+    title:"Tyler 6-Seater Dining Table & Chairs",
+    price:"799",
+    rent:"Rent ₹799/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+    
+},{
+    img:"https://i.ibb.co/j44mgb2/bhpxawks-500x500.jpg",
+    title:"Tyler 4-Seater Dining Table & Chairs",
+    price:"799",
+    rent:"Rent ₹799/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+    
+},{
+    img:"https://i.ibb.co/7bcMYkq/jotwg0bl-500x500.jpg",
+    title:"Alton 4-Seater Dining Table & Chairs",
+    price:"799",
+    rent:"Rent ₹799/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+    
+},{
+    img:"https://i.ibb.co/zJmB1L3/2qxe35gr-500x500-1.jpg",
+    title:"Heston 6-Seater Dining Table & Chairs",
+    price:"799",
+    rent:"Rent ₹799/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+    
+},{
+    img:"https://i.ibb.co/Dff2Pg2/nhkwo8i6-500x500.jpg",
+    title:"Macro 4-Seater Dining Table & Chairs",
+    price:"799",
+    rent:"Rent ₹799/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+    
+},];
+
+let baby_data=[{
+    img:"https://i.ibb.co/gDKDgS9/s0yo6ill-500x500.jpg",
+    title:"IKEA Mammut Table and Chair Set",
+    price:"799",
+    rent:"Rent ₹799/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+    
+},
+{
+    img:"https://i.ibb.co/gMLvGy2/yvof1k0h-500x500.jpg",
+    title:"Antilop Highchair with Tray",
+    price:"799",
+    rent:"Rent ₹799/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+    
+},{
+    img:"https://i.ibb.co/mv1ZFLk/jxb4nxam-500x500.jpg",
+    title:"Baby Cat Crib With Mattress",
+    price:"799",
+    rent:"Rent ₹799/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+    
+},{
+    img:"https://i.ibb.co/0n3Vq2n/9y16aj37-500x500.jpg",
+    title:"Solgul Baby Cat",
+    price:"799",
+    rent:"Rent ₹799/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+    
+},{
+    img:"https://i.ibb.co/RPh3Jz6/ne1morv1-500x500.jpg",
+    title:"Mala Easel Board by IKEA",
+    price:"799",
+    rent:"Rent ₹799/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+    
+},];
+
+let wfh_data=[{
+    img:"https://i.ibb.co/kMvrHQD/em6h6xgy-250x250.jpg",
+    title:"Stuart Study Table",
+    price:"299",
+    rent:"Rent ₹299/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+
+},
+{
+    img:"https://i.ibb.co/9YXP6yv/ggtbqrqq-250x250.jpg",
+    title:"Morris Office Chair",
+    price:"199",
+    rent:"Rent ₹199/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+    
+},{
+    img:"https://i.ibb.co/t4kmb9X/9kxg1c3a-250x250.jpg",
+    title:"Exec Workdtation",
+    price:"129",
+    rent:"Rent ₹129/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+    
+},{
+    img:"https://i.ibb.co/FsnnQdv/pzts2dn4-250x250.jpg",
+    title:"Rowling Bookshelf Medium",
+    price:"109",
+    rent:"Rent ₹109/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+    
+},{
+    img:"https://i.ibb.co/8jnYVLR/1eoam6o5-250x250-1.jpg",
+    title:"Paise Study Table",
+    price:"179",
+    rent:"Rent ₹179/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+    
+},]
+
+
+
+
+    let ref_data=[{
+        img:"https://i.ibb.co/n6MwVHM/juqzr42r-250x250.jpg",
+        title:"Single Door Fridge (190 Litre)",
+    price:"779",
+    rent:"Rent ₹779/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+        
+
+    },
+    {
+        img:"https://i.ibb.co/Gct5STL/03rx0vpt-250x250.jpg",
+        title:"Mini Fridge",
+    price:"479",
+    rent:"Rent ₹479/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+        
+
+    },{
+        img:"https://i.ibb.co/kqB1xpy/m62sgwfs-250x250.jpg",
+        title:"Single Door Fridge",
+    price:"679",
+    rent:"Rent ₹679/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+        
+
+    },{
+        img:"https://i.ibb.co/cN8rcPJ/9q7xaemi-250x250.jpg",
+        title:"Double Door Fridge",
+    price:"1179",
+    rent:"Rent ₹1179/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+        
+
+    },{
+        img:"https://i.ibb.co/P4MxMnv/ti9hy351-250x250.jpg",
+        title:"Single Door Fridge (210 Litre)",
+    price:"879",
+    rent:"Rent ₹879/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+        
+
+    },]
+
+    let tv_data=[{
+        img:"https://i.ibb.co/ZW16tpd/hc6uinv1-250x250.jpg",
+        title:"Smart LED TV -32",
+    price:"879",
+    rent:"Rent ₹879/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+        
+
+    },
+    {
+        img:"https://i.ibb.co/5GJ9QvG/s782cupb-250x250.jpg",
+        title:"LED TV -32",
+    price:"979",
+    rent:"Rent ₹979/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+        
+
+    },{
+        img:"https://i.ibb.co/3vzn1qL/qzslv30s-250x250.jpg",
+        title:"Smart LED TV -43",
+    price:"1279",
+    rent:"Rent ₹1279/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+        
+
+    },{
+        img:"https://i.ibb.co/9YzHGBP/011yi0xb-250x250.jpg",
+        title:"LED TV -24",
+    price:"579",
+    rent:"Rent ₹579/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+        
+
+    },{
+        img:"https://i.ibb.co/7tP5Z8F/ujm70apk-250x250.jpg",
+        title:"Smart LED TV -49",
+    price:"1379",
+    rent:"Rent ₹1379/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+        
+
+    },]
+
+    let airpurifier_data=[{
+        img:"https://i.ibb.co/0CDnmy5/dgvhqn76-250x250.jpg",
+        title:"Livpure - Smart Water Purifier",
+    price:"479",
+    rent:"Rent ₹479/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+        
+
+    },
+    {
+        img:"https://i.ibb.co/k0X8C9q/glazai2e-250x250.jpg",
+        title:"Air Purifier",
+    price:"559",
+    rent:"Rent ₹559/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+        
+
+    },{
+        img:"https://i.ibb.co/NVnGwKq/rypid344-250x250.jpg",
+        title:"Kent Pride Plus Water Purifier",
+    price:"779",
+    rent:"Rent ₹779/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+        
+
+    },{
+        img:"https://i.ibb.co/jLk2vyM/twnq03t0-250x250.jpg",
+        title:"Kent Max Water Purifier",
+    price:"489",
+    rent:"Rent ₹489/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+        
+
+    }]
+
+    let wmachine_data=[{
+        img:"https://i.ibb.co/KV4511n/dwlfh1xi-250x250.jpg",
+        title:"Semi Automatic Washing Machine",
+    price:"779",
+    rent:"Rent ₹779/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+        
+
+    },
+    {
+        img:"https://i.ibb.co/kgHqX4F/xf04vdtv-250x250.jpg",
+        title:"Front Load Washing Machine",
+    price:"479",
+    rent:"Rent ₹479/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+        
+
+    },{
+        img:"https://i.ibb.co/m6tkxfV/ex9dpggj-250x250.jpg",
+        title:"Cloth Dryer",
+    price:"979",
+    rent:"Rent ₹979/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+        
+
+    },{
+        img:"https://i.ibb.co/G301Stk/g8cndm7d-250x250-1.jpg",
+        title:"Top Load Washing Machine",
+    price:"1129",
+    rent:"Rent ₹1129/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+
+    },]
+
+    let ac_data=[{
+        img:"https://i.ibb.co/KsSLLst/tj583ult-250x250.jpg",
+        title:"Air Condition 1 Ton",
+    price:"1779",
+    rent:"Rent ₹1779/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+        
+
+    },
+    {
+        img:"https://i.ibb.co/RP6wYTK/v1c75c2j-250x250.jpg",
+        title:"Air Condition 1 Ton",
+    price:"1879",
+    rent:"Rent ₹1879/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+        
+
+    },{
+        img:"https://i.ibb.co/MDLvYHK/05gpq2h8-250x250.jpg",
+        title:"Air Condition 1.5 Ton",
+    price:"2279",
+    rent:"Rent ₹2279/month",
+    desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+     size:"16inL x 14inB x 30inH",
+    features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
+        
+
+    },]
+
+    
+
+
+    let bed=document.getElementById("bedroom");
+    let l_room=document.getElementById("living");
+    let kitchen=document.getElementById("kitchen");
+    let babyf=document.getElementById("baby");
+    let wfh=document.getElementById("wfh");
+
+    function initial(){
+        bed.checked=true;
+    display(bedroom_data)
+    }
+    initial();
+    bed.addEventListener("change",function(){
+        if(bed.checked===true){
+            l_room.checked=false;
+            kitchen.checked=false;
+            babyf.checked=false;
+            wfh.checked=false;
+        setTimeout(function(){
+        display(bedroom_data)
+            },1000)
+
+    }
+    })
+
+    wfh.addEventListener("change",function(){
+        if(wfh.checked===true){
+            l_room.checked=false;
+            kitchen.checked=false;
+            babyf.checked=false;
+            bed.checked=false;
+            setTimeout(function(){
+                display(wfh_data)
+            },1000)
+    }
+    })
+
+    babyf.addEventListener("change",function(){
+        if(babyf.checked===true){
+            l_room.checked=false;
+            kitchen.checked=false;
+            bed.checked=false;
+            wfh.checked=false;
+        setTimeout(function(){
+        display(baby_data)
+            },1000)
+    }
+    })
+
+    l_room.addEventListener("change",function(){
+        if(l_room.checked===true){
+            bed.checked=false;
+            kitchen.checked=false;
+            babyf.checked=false;
+            wfh.checked=false;
+        setTimeout(function(){
+        display(livingroom_data)
+            },1000)
+        
+    }
+    })
+
+    kitchen.addEventListener("change",function(){
+   
+        if(kitchen.checked===true){
+            l_room.checked=false;
+            bed.checked=false;
+            babyf.checked=false;
+            wfh.checked=false;
+        setTimeout(function(){
+        display(kitchen_data)
+            },1000)
+    }
+    })
+   
+    
+
+
+   
+         
+
+
+
+     
+
+
+    function display(data){
+
+       let cont =document.getElementById("product_containor");
+
+
+        cont.innerHTML="";
+
+        data.forEach((e) => {
+
+            let div=document.createElement("div")
+            div.setAttribute("class","product_cards");
+
+            let btn_div=document.createElement("div");
+     btn_div.setAttribute("class","view");
+     let btn=document.createElement("button")
+     btn.innerText="Quick View";
+     btn.setAttribute("id","viewbtn")
+     btn.addEventListener("click",function(){
+        localStorage.setItem("products",JSON.stringify(e));
+        window.location.href="new-product-page.html";
+
+     })
+
+     btn_div.append(btn);
+
+     let span=document.createElement("span");
+     span.innerText="mo";
+     span.setAttribute("class","mo")
+
+            let i=document.createElement("img")
+            i.src=e.img;
+            i.style.width="100%"
+            let t=document.createElement("h3");
+            t.innerText=e.title;
+            let p=document.createElement("p");
+            p.innerText=e.price+"/";
+            p.style.display="inline"
+
+
+            div.append(i,t,p,span,btn_div)
+            cont.append(div);
+
+
+
+        });
+
+    }
+     // search function
+     function nav_search_fn(){
+        let se=document.getElementById("nav_search").value;
+        if(se=="bed"){
+            window.location.href="furniture.html";
+        }else if(se=="refrigerator"){
+            window.location.href="appliances.html";
+
+        }
+    }
+
+    // navbar started 
+    let dropdown_menu_open = document.getElementById("dropdown_menu_open");
+    dropdown_menu_open.addEventListener("click", function () {
+        let menu = document.getElementById("menu");
+        menu.style.display = "block";
+    });
+    let dropdown_menu_close = document.getElementById("dropdown_menu_close");
+    dropdown_menu_close.addEventListener("click", function () {
+        let menu = document.getElementById("menu");
+        menu.style.display = "none";
+    });
+    let location_data = [];
+    class location_obj {
+        constructor(name, img) {
+            this.name = name;
+            this.img = img;
+        }
+    }
+    let city1 = new location_obj("Hyderabad", "img/hyderabad_location.png");
+    let city2 = new location_obj("Chennai", "img/chennai_location.png");
+    let city3 = new location_obj("Gurgaon", "img/gurgaon_location.png");
+    let city4 = new location_obj("Noida", "img/noida_location.png");
+    let city5 = new location_obj("Delhi", "img/delhi_location.png");
+    let city6 = new location_obj("Mumbai", "img/mumbai_location.png");
+    let city7 = new location_obj("Pune", "img/pune_location.png");
+
+    location_data.push(city1, city2, city3, city4, city5, city6, city7);
+    showInLocationBox(location_data);
+    function showInLocationBox(data) {
+        let box = document.getElementById("location_box");
+        data.forEach(function (e) {
+            let div = document.createElement("div");
+            box.append(div);
+            let img = document.createElement("img");
+            img.src = e.img;
+            div.append(img);
+            div.addEventListener("click", function () {
+                let p = document.getElementById("change_location");
+                p.innerText = e.name;
+            })
+        })
+    }
+    let location_box_open = document.getElementById("location");
+    location_box_open.addEventListener("click", function () {
+        let box = document.getElementById("location_box");
+        box.style.display = "grid";
+    });
+    let location_box_close = document.getElementById("location_box_close");
+    location_box_close.addEventListener("click", function () {
+        let box = document.getElementById("location_box");
+        box.style.display = "none";
+    });
+
+    // login signup started
+
+
+    function show_login_popup() {
+        let menu = document.getElementById("menu");
+        menu.style.display = "none";
+        let but = document.getElementById("home_login_button");
+        if (but.innerText == "LOGIN/SIGNUP") {
+            let div = document.getElementById("login_popup");
+            div.style.display = "flex";
+        } else {
+            localStorage.setItem("user_login_data", null);
+            localStorage.setItem("loginsuccess", false);
+            but.innerText = "LOGIN/SIGNUP";
+            alert("Logout Success!!!");
+        }
+    }
+    document.addEventListener("mouseup", function (e) {
+        let div = document.getElementById("login_popup");
+        if (!div.contains(e.target)) {
+            div.style.display = "none";
+        }
+    })
+    let login_data_submit_button = document.getElementById("login_data_submit_button");
+    login_data_submit_button.addEventListener("click", function () {
+        let phone = document.getElementById("login_phone_data").value;
+        let name = document.getElementById("login_name_data").value;
+        let otp = document.getElementById("login_otp_data").value;
+        if (phone == "" || name == "" || otp == "") {
+            alert("Fill All Inputs");
+        } else {
+            if (otp == "1234") {
+                let obj = {
+                    name: name,
+                    mobile: phone,
+                }
+                localStorage.setItem("user_login_data", JSON.stringify(obj));
+                localStorage.setItem("loginsuccess", true);
+                show_name_login_user();
+                alert("Login successfull");
+
+            } else {
+                alert("OTP not match");
+            }
+        }
+    })
+    show_name_login_user();
+
+    function show_name_login_user() {
+        if (localStorage.getItem("user_login_data") == null) {
+            localStorage.setItem("loginsuccess", false);
+        } else {
+            localStorage.setItem("loginsuccess", true);
+            let details = JSON.parse(localStorage.getItem("user_login_data"));
+            let but = document.getElementById("home_login_button");
+            but.innerText = details.name;
+        }
+    }
+     //cart data
+
+     let cartArr=JSON.parse(localStorage.getItem("cartpage")) || []; 
+    function cart_clicked(){
+        let login_status=JSON.parse(localStorage.getItem("loginsuccess"));
+        if(login_status==true){
+            window.location.href="cart.html";
+        }else{
+            alert("Login first!!");
+        }
+    }
+
+
+    function  goToHome(){
+        window.location.href="index.html";
+    }
+
+</script>
+

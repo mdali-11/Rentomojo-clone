@@ -1,0 +1,1833 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rentomojo</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto Condensed' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet'>
+    <style>
+        /* * {
+            padding: 0;
+            margin: 0;
+        } */
+
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            margin: 0px auto 40px auto;
+            padding: 10px 5%;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        }
+
+        #navbar>div:nth-child(1) {
+            display: none;
+
+        }
+
+        #navbar>div:nth-child(2){
+            cursor: pointer;
+        }
+        #location {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 20px;
+            cursor: pointer;
+        }
+
+        #location>img {
+            width: 50%;
+            margin: 0px 5px;
+        }
+
+        #navbar>div:nth-child(4) {
+            width: 50%;
+        }
+
+        #navbar>div:nth-child(4)>input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 16px;
+            border: 1px solid rgb(207, 207, 207);
+            background-color: rgb(247, 247, 247);
+            color: black;
+        }
+
+        #navbar>div:nth-child(4)>input:hover {
+            background-color: rgb(255, 255, 255);
+        }
+
+        #navbar>div:nth-child(5) {
+            width: 55px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+
+        #navbar>div:nth-child(5)>img {
+            width: 100%;
+        }
+
+        #navbar>div:nth-child(6)>button {
+            color: white;
+            background-color: rgb(204, 3, 3);
+            border: 1px solid rgb(204, 3, 3);
+            /* border: none; */
+            border-radius: 10px;
+            padding: 15px 20px;
+        }
+
+        #navbar>div:nth-child(6)>button:hover {
+            background-color: white;
+            color: rgb(204, 3, 3);
+            border: 1px solid rgb(204, 3, 3);
+            border-radius: 10px;
+            padding: 15px 20px;
+        }
+
+        #search_down {
+            display: none;
+        }
+
+        #menu {
+            display: block;
+            position: fixed;
+            height: 100%;
+            width: 55%;
+            background-color: rgb(255, 255, 255);
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            top: 0px;
+            display: none;
+            z-index: 2;
+        }
+
+        #menu>div:nth-child(1) {
+            margin: 30px 20px 50px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #menu>div:nth-child(1)>div:nth-child(2) {
+            width: 25px;
+        }
+
+        #menu>div:nth-child(1)>div:nth-child(2)>img {
+            width: 100%;
+        }
+
+        #menu>div:nth-child(2) {
+            margin: 10px 0px 0px 40px;
+        }
+
+        #menu>div:nth-child(2)>ul>li {
+            list-style-type: none;
+            padding: 5px;
+            margin: 25px 0px;
+        }
+        #home_login_button{
+            cursor: pointer;
+        }
+
+        #menu>div:nth-child(2)>ul>li>a {
+            text-decoration: none;
+            color: rgb(126, 126, 126);
+        }
+
+        #dropdown_menu_close {
+            cursor: pointer;
+        }
+
+        #dropdown_menu_open {
+            cursor: pointer;
+        }
+
+        #location_box {
+            position: fixed;
+            top: 50px;
+            width: 70%;
+            left: 15%;
+            margin: auto;
+            background-color: white;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            /* display: grid; */
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            display: none;
+            z-index: 2;
+
+        }
+
+        #location_box>div {
+            cursor: pointer;
+        }
+
+        #location_box>div:nth-child(1) {
+            grid-area: 1/1/2/5;
+            width: 150px;
+            margin: 20px auto;
+        }
+
+        #location_box>div:nth-child(1)>button {
+            background-color: rgb(214, 214, 214);
+            border-radius: 0px;
+            padding: 10px 30px;
+            border: 1px solid rgb(205, 205, 205);
+            font-size: 20px;
+            width: 100%;
+            color: rgb(84, 84, 84);
+
+        }
+
+        #location_box>div:nth-child(1)>button:hover {
+            background-color: white;
+
+
+        }
+
+        @media all and (max-width:1000px) {
+            #navbar {
+                width: 100%;
+                padding: 10px 0px;
+                margin-bottom: 0px;
+                box-shadow: none;
+            }
+
+            #navbar>div:nth-child(1) {
+                display: block;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-left: 15px;
+            }
+
+            #navbar>div:nth-child(1)>img:nth-child(1) {
+                margin-left: 15px;
+            }
+
+            #navbar>div:nth-child(1)>img:nth-child(2) {
+                margin-left: 15px;
+            }
+
+            #navbar>div:nth-child(2) {
+                display: none;
+            }
+
+            #navbar>div:nth-child(3) {
+                display: none;
+            }
+
+            #navbar>div:nth-child(4) {
+                display: none;
+            }
+
+            #navbar>div:nth-child(6) {
+                display: none;
+            }
+
+            #navbar>div:nth-child(5) {
+                margin-right: 15px;
+                cursor: pointer;
+            }
+
+            #search_down {
+                display: block;
+                width: 80%;
+                margin: 0px auto 20px auto;
+            }
+
+            #search_down>input {
+                width: 100%;
+                padding: 10px;
+                border-radius: 10px;
+                font-size: 16px;
+                border: 1px solid rgb(207, 207, 207);
+                background-color: rgb(247, 247, 247);
+                color: black;
+            }
+        }
+
+
+        /* this is login signup */
+        #login_popup {
+            width: 64vw;
+            /* height: 80vh; */
+            position: fixed;
+            top: 10vh;
+            left: 18vw;
+            /* padding: 20px; */
+            border-radius: 30px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            display: flex;
+            justify-content: space-between;
+            display: none;
+            background-color: white;
+            z-index: 2;
+        }
+
+        #login_popup>div:nth-child(1) {
+            width: 45%;
+            margin-left: 40px;
+            margin-right: 20px;
+        }
+
+        #login_popup>div:nth-child(1)>img {
+            width: 90%;
+        }
+
+        #login_popup>div:nth-child(2) {
+            width: 45%;
+            padding-top: 40px;
+            padding-right: 50px;
+        }
+
+        #login_popup>div:nth-child(2)>label {
+            margin-top: 20%;
+        }
+
+        #login_popup>div:nth-child(2)>input {
+            width: 100%;
+            margin-top: 4px;
+            padding: 5px;
+        }
+
+        #login_popup>div:nth-child(2)>button {
+            width: 100%;
+            margin-top: 55%;
+            padding: 5px;
+        }
+
+        @media all and (max-width:900px) {
+            #login_popup_img {
+                display: none;
+            }
+
+            #login_popup>div:nth-child(2) {
+                width: 70%;
+                padding: 40px;
+                margin: auto;
+            }
+        }
+
+        /* banner add from here  */
+        #items {
+            width: 90%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 70px;
+            
+            /* border: 5px solid black; */
+
+        }
+
+        #items div {
+            /* width: 100%; */
+            /* margin: auto; */
+            margin-top: 20px;
+            cursor: pointer;
+
+        }
+
+        #items img {
+            width: 100%;
+        }
+
+
+
+        #items div:hover {
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            transform: scale(1.2);
+        }
+
+        #cont {
+            width: 75%;
+            height: 400px;
+            margin: auto;
+            border-radius: 30px;
+            z-index: 1;
+        }
+
+        :root {
+            font-family: "Raleway", sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        /* * {
+            margin: 0;
+            box-sizing: border-box;
+        } */
+
+        /* banner */
+        .banner {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .banner_inner {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .banner_inner::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .banner_item {
+            position: relative;
+            float: left;
+            display: none;
+            width: 100%;
+            margin-right: -100%;
+        }
+
+        /* slide effect */
+        .banner_item__active,
+        .banner_item__pos_prev,
+        .banner_item__pos_next {
+            display: block;
+        }
+
+        .banner_item__pos_prev {
+            left: -100%;
+        }
+
+        .banner_item__pos_next {
+            left: 100%;
+        }
+
+        .banner_item__prev {
+            transform: translateX(100%);
+            transition: transform 10s ease-in-out;
+        }
+
+        .banner_item__next {
+            transform: translateX(-100%);
+            transition: transform .3s ease-in-out;
+        }
+
+        /* fade effect */
+        .banner__fade .banner_item__pos_prev,
+        .banner__fade .banner_item__pos_next {
+            left: 0;
+            opacity: 0;
+        }
+
+        .banner__fade .banner_item__prev,
+        .banner__fade .banner_item__next {
+            transform: none;
+            opacity: 1;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .banner__fade .banner_item__active.banner_item__prev,
+        .banner__fade .banner_item__active.banner_item__next {
+            opacity: 0;
+        }
+
+        /* banner */
+        .banner_img {
+            display: block;
+            width: 100%;
+        }
+
+        .banner_caption {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: 3rem 4rem;
+            text-align: center;
+            color: #fff;
+            z-index: 1;
+        }
+
+        .banner_title {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 600;
+        }
+
+        .banner_description {
+            margin-top: .75rem;
+            line-height: 150%;
+        }
+
+        .banner_indicator {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: row;
+            gap: .5rem;
+            z-index: 1;
+        }
+
+        .banner_dot {
+            display: block;
+            padding: .25rem;
+            background-color: rgba(255, 255, 255, .25);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color .8s ease-in-out;
+        }
+
+        .banner_dot__active {
+            background-color: lightskyblue;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .banner_control {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            height: 100%;
+        }
+
+        .banner_button {
+            display: block;
+            padding-inline: 1rem;
+            font-family: "Raleway", sans-serif;
+            font-size: 1.375rem;
+            background-color: transparent;
+            color: rgba(255, 255, 255, .25);
+            border: none;
+            cursor: pointer;
+            transition: color .25s;
+            z-index: 1;
+        }
+
+        .banner_button:hover {
+            color: rgba(135, 206, 250, .75);
+        }
+
+        .covid-warn {
+            padding-top: 25px;
+            padding-bottom: 15px;
+
+            width: 100%;
+            border-radius: 20px;
+            /* height: 70px; */
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* border: 5px solid black; */
+            background-color: #D4E0E9;
+            margin-top: -15px;
+
+
+
+        }
+
+        .covid-warn p {
+            width: 100%;
+            font-size: 14px;
+        }
+
+        @media all and (min-width:480px) and (max-width:720px) {
+
+          
+
+            #cb{
+                display: none;
+            }
+
+            #cont {
+                /* display: none; */
+                width: 95%;
+                height: 400px;
+                margin: auto;
+                border-radius: 30px;
+                z-index: 1;
+            }
+
+            .covid-warn p {
+                width: 90%;
+                margin: auto;
+                font-size: 10px;
+            }
+
+
+
+            #items {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media all and (min-width:320px) and (max-width:480px) {
+
+            #cont {
+                /* display: none; */
+                width: 100%;
+                height: 400px;
+                margin: auto;
+                border-radius: 30px;
+                z-index: 1;
+            }
+
+
+            .covid-warn p {
+                width: 90%;
+                margin: auto;
+                font-size: 10px;
+            }
+
+            #items {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* div3 started nitish  */
+
+
+        #cont3 {
+            display: grid;
+            width: 90%;
+            margin: auto;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 200px 200px;
+            border: 0px solid red;
+            padding: 70px;
+        }
+
+        .sub3 {
+            border: 0px solid blue;
+        }
+
+        #div3 {
+            margin-top: 40px;
+            background-color: azure;
+        }
+
+        h2 {
+            margin-left: 70px;
+        }
+
+        #un {
+
+            margin-top: -20px;
+            /* text-decoration: underline; */
+            /* text-decoration-color: red; */
+        }
+
+        #know {
+            color: skyblue
+        }
+
+        @media all and (min-width:320px) and (max-width:720px) {
+            #div3 {
+                display: none;
+            }
+        }
+
+        /* div4 nitish */
+
+
+        /* Slideshow container */
+        .slideshow4 {
+            width: 800px;
+            position: relative;
+            margin: auto;
+            border: 0px solid red;
+            padding-bottom: 150px;
+            background-image: url("https://i.ibb.co/YDvkbhb/inv.jpg");
+            background-repeat: no-repeat;
+            background-position: 600px 0px;
+            z-index: 3;
+        }
+
+        /* Hide the images by default */
+        .mySlides4 {
+            display: none;
+        }
+
+        /* Next & previous buttons */
+        .prev,
+        .next {
+            cursor: pointer;
+            position: relative;
+            top: 25%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+            /* right: 1000px; */
+            border-radius: 3px 0 0 3px;
+        }
+
+        /* On hover, add a black background color with a little bit see-through */
+        .prev,
+        .next {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Caption text */
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Number text (1/3 etc) */
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        .mySlides4 img {
+            width: 10%;
+            height: 10%;
+            border-radius: 100%;
+        }
+
+
+
+        .active,
+        .dot:hover {
+            background-color: #717171;
+        }
+
+
+
+        #div4 {
+            display: flex;
+            padding-left: 100px;
+            margin: auto;
+            background-color: azure;
+            height: 500px;
+
+        }
+
+        #un {
+
+            margin-top: -20px;
+            /* text-decoration: underline;
+            text-decoration-color: red; */
+        }
+
+        @media all and (min-width:320px) and (max-width:720px) {
+
+            #cb{
+                display: none;
+            }
+            /* #bottom_footer{
+                display: none;
+            } */
+            #div4 {
+                display: none;
+            }
+        }
+
+
+        /* footer here  */
+
+
+
+        #footer {
+            display: flex;
+            font-family: 'Muli';
+            gap: 100px;
+            justify-content: space-between;
+            /* gap: 20px; */
+        }
+
+        #footer li {
+            width: 100%;
+            list-style: none;
+            margin: 25px;
+            /* border: 10px solid red; */
+        }
+
+        #footer a {
+            text-decoration: none;
+            color: black;
+        }
+
+        #footer a:hover {
+            color: black;
+            text-decoration: underline;
+        }
+
+        /* 
+        .extra-width {
+            width: 125%;
+        } */
+
+        #bottom_footer {
+            width: 80%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px 0px;
+        }
+
+
+
+
+
+
+
+
+
+
+
+        .B {
+
+            /* display: grid;
+            grid-template-columns: repeat(6, 1fr); */
+            display: flex;
+            /* gap:-50px; */
+            /* border: 5px solid red; */
+
+        }
+
+        .B img {
+            width: 40%;
+        }
+
+        #bd {
+            width: 100;
+        }
+
+
+
+
+
+        #footer ol>div {
+            display: flex;
+            gap: 20px;
+        }
+
+        #footer ol>div img {
+            width: 30%;
+        }
+
+        #footer>div:nth-child(4) {
+            margin-top: 25px;
+        }
+
+
+
+
+
+
+
+
+        #footer ol button {
+            background-color: transparent;
+            font-size: 20px;
+            padding: 20px 15px;
+
+
+        }
+
+        #cb {
+            margin-top: 70px;
+            background-color: #F5F7FA;
+            width: 133%;
+            margin-left: -180px;
+            padding: 70px 0px;
+        }
+
+        #footer {
+            width: 80%;
+            margin: auto;
+            background-color: #F5F7FA;
+            /* border: 5px solid black; */
+        }
+
+        #cb .p {
+            width: 80%;
+            margin: auto;
+            background-color: #F5F7FA;
+            /* border: 5px solid black; */
+        }
+
+        
+ 
+    
+   
+
+            #med {
+                  display: none;
+              }
+              @media all and (min-width:480px) and (max-width:720px) {
+      
+          
+                  #med {
+                  display: block;
+              }
+                  /* Style the buttons that are used to open and close the outer inner */
+                 
+                  #med .outer {
+                      background-color: #eee;
+                      color: #444;
+                      cursor: pointer;
+                      padding: 2px;
+                      padding-left: 10px;
+                      width: 100%;
+                      text-align: left;
+                      border: none;
+                      outline: none;
+                      transition: 0.4s;
+                  }
+      
+                  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+                  #med .active,
+                  .outer:hover {
+                      background-color: #ccc;
+                  }
+      
+                  /* Style the outer inner. Note: hidden by default */
+                  #med .inner {
+                      padding: 0 18px;
+                      background-color: white;
+                      display: none;
+                      overflow: hidden;
+                  }
+      
+      
+                  #med ol button {
+                      background-color: transparent;
+                      font-size: 20px;
+                      padding: 20px 15px;
+      
+      
+                  }
+      
+                  #med li {
+                      width: 100%;
+                      list-style: none;
+                      margin: 25px;
+                      /* border: 10px solid red; */
+                  }
+       
+                  #med  a {
+                      text-decoration: none;
+                      color: black;
+                  } 
+      
+                  #med  a:hover {
+                      color: black;
+                      text-decoration: underline;
+                  }
+      
+                  #med  ol>div img {
+                      width: 25%;
+                  }
+      
+      
+              }
+      
+              @media all and (min-width:320px) and (max-width:480px) {
+
+      
+                
+                  #med {
+                  display: block;
+              }
+            
+                  /* Style the buttons that are used to open and close the outer inner */
+                  #med  .outer {
+                      display: block;
+                      background-color: #eee;
+                      color: #444;
+                      cursor: pointer;
+                      padding: 2px;
+                      padding-left: 10px;
+                      width: 100%;
+                      text-align: left;
+                      border: none;
+                      outline: none;
+                      transition: 0.4s;
+                  }
+      
+                  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+                  #med  .active,
+                  .outer:hover {
+                      background-color: #ccc;
+                  }
+      
+                  /* Style the outer inner. Note: hidden by default */
+                  #med  .inner {
+                      padding: 0 18px;
+                      background-color: white;
+                      display: none;
+                      overflow: hidden;
+                  }
+      
+      
+                  #med ol button {
+                      background-color: transparent;
+                      font-size: 20px;
+                      padding: 20px 15px;
+      
+      
+                  }
+      
+                  #med li {
+                      width: 100%;
+                      list-style: none;
+                      margin: 25px;
+                      /* border: 10px solid red; */
+                  }
+      
+                  #med  a {
+                      text-decoration: none;
+                      color: black;
+                  }
+      
+                  #med  a:hover {
+                      color: black;
+                      text-decoration: underline;
+                  }
+      
+                  #med  ol>div img {
+                      width: 30%;
+                  }
+      
+      
+              }
+      
+         
+           
+           
+          </style>
+</head>
+
+<body>
+    <div id="navbar">
+        <div><img src="https://www.rentomojo.com/public/images/Home/new/ham__icon.svg" id="dropdown_menu_open"
+                alt=""><img src="https://www.rentomojo.com/public/images/Home/new/logo.svg" alt=""></div>
+        <div onclick="goToHome()"><img src="https://www.rentomojo.com/public/images/logo.svg" alt=""></div>
+        <div>
+            <div id="location">
+                <p id="change_location">Delhi</p><img
+                    src="https://cdn.icon-icons.com/icons2/1904/PNG/512/downarrow_121316.png" alt="">
+            </div>
+        </div>
+        <div><input type="text" id="nav_search" oninput="nav_search_fn()" placeholder="Search for Product"></div>
+        <div><img src="img/cart.png" onclick="cart_clicked()" alt=""></div>
+        <div><button id="home_login_button" onclick="show_login_popup()">LOGIN/SIGNUP</button></div>
+    </div>
+    <div id="menu">
+        <div>
+            <div><img src="https://www.rentomojo.com/public/images/logo.svg" alt=""></div>
+            <div><img id="dropdown_menu_close"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAWlBMVEX///8AAAC1tbWysrKenp6rq6unp6eurq64uLhlZWWioqLHx8diYmJubm6oqKihoaGEhIRdXV2Xl5d0dHR+fn6Li4tvb296enppaWlYWFi9vb3MzMyDg4OSkpLl8kOMAAAGBUlEQVR4nN2d23abMBBFwWlqXNLm2kvi5P9/s4uM5YDNERLoMmf2KzbWXnNGEMdITTOif2ss8NajI33bdiVHkomubYHisW0tKHaDxnHuyKcgv2InGjOKfXtiV35UCdk5jaugngW5q9h9aVwoHtvWgmI31pgEtW8nsAZ1N9UYVfFCkFVxd6lxVrwS5Axqd61xUpwRZFScETwpzgryBfUqomdFIMimCAQHxQM6RKUIBdtD0zwaUMSCj8PhO3j4pvbIA7mBBnfyAvYqLlRw4JVaEQu+fr2IOaiLERXwjKpdEQsepi/EvahbEQs+Xr6UUzFCkDOowREV+BQjBfmCGhVRgeuiEV3BgX/wTftyIw9kD8f6z/c2nl5cVcEBll5c0YMOjqCujKjAoLhJkGFGDbzZxuDpRkcVcQUXJpkvcFBvc448kFs4uqCICpp7cWMPOnAv1lbEgoE96NAa1CQRFX6qVMSCP+NPprEXE/WgQ99FI8FlYoq2oOKI/ll7Sl2KGQR9QS2vmHAWHaPnopF0Fh3zB574V5qRB/ILjmNDRAUdvZilBx0agpqpBx31g4oj+pzmA54rK2YXrN2L2WbRMTUViwj6gvo95cfM8B1+crKICrV6sUAPOnBQcypiwaQRFWoEtVhEhfKKWPBvng8s3YsFe9BR9u4m48025i/80B/JP+sH/KxMERWwYupeLN6DjlLTTeFZdEwZxYqCZXqxUg868vditR505A5q1YgKeYNaOaICVrzffO57eO6XBCMPJl8VVVRwAPfiNkU1gk3zAoeyJahKIipgxfVVxBWsIJijFxVFVEg9o6qKqICD+m3F2b7Bs70nH3kwKXtRWQ860gUVR7RSDzpSBVVlRIU0iooF01z6Fc6iY7YrKhdsmnc4wLCg4og+ZB55MNsUCQS3TTdYUElEhfVVVD2LjnmAA33yvu8Jvk9RRIV1VaToQceaXqSJqBAfVKKIClhxvoq4gr8LjzyYuF6k6kFHjCKlYEwv4h5UG1EhtBcJe9ARFlTSiAohQaWNqPB7UZFccLmK9IJLinR3MnP4gmqgggNYET8OTyXoC6oRQV8VjQjGKhIKxilSCsb0IqlgeBU/ag90PWGKxIJhirQRFZYVyQWb5sNyRAW/ogFBf1DpIyrgxUNfl9/MgPkamu9D83Op+euh+Xsa8/el5v+2MP/3ofm/8c1/T2P+uzbz35ea/84bC354buOIFM3/78n8/w99ERXIg2r+//j4txjjX9QQ92LoT4Zoq2j+N1FhERUogxojSKkY+xNauqCa/42w+d95m/+tvvnnLeJm0TFYUVVQzT/3ZP7ZtfURFdT34vYngZUHNcWjzqoVzT/Lbf55fLymQuzKGFix6poKKZfhUfnIuvm1TdJFVFA3o6Zf0kzZ+iY5lsJS1Ytpe9ChKKjm12szv+ae+XUTcwqqmFFz9aADB7XQ+qX5l9lVu8huiogKVYOaO6JCxaCaX8+73LLz6hadN7KuPt4bIccOFzio2fZGKL2FR/FeLDOLjikcVPP7zOC9gnLu+IQVk+8VVGtLKwUbWhnZs6vOdlZCkU2tagoWUawXUSF7UMveycyRWdH8PqTm95KtH1Eh2224hogKmTbrNL8vt44edBTdPL7sntyO5NsF4oju0448mD0c0WHN6fAkU0vQp7iiF3X1oCPhjKrnMjEl2Yx6B09UL6ICDupdzGk09qAjSS9qjaiQIKj6LhNTNl809PagY2Mvau5Bx6ZeZBDcpIgfJr8pMfJgbuA4H/1vxJOMLkGfone64YiosCqoeBbVVsGBFVVk6UFHdC/y9KAjsora72TmiLq7YYuoEBFUTsEIRb4edAT2ItdlYgpWHN2G4+U3d/VGHswOjv68eCjuQQZBn+KpF5kjKiwElb2CA94q4lmUR9CneGh6C4Iexb5Biiw96AC92A/HZhW72iOOpoOCs4p8grOKvTt2pcjVg46rXuy/jvUWBK8U+/GxI3tEhUlQj9NjvQXBiWJ/eeysyBpRYQcFz0FlruBANxtR4WhB8KQ4K/gZVH7BT8WZiAr9W8mRZONtIvgfZlFV9o8OQ9EAAAAASUVORK5CYII="
+                    alt=""></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="" onclick="show_login_popup()">Login/Signup</a></li>
+                <li><a href="">Categories</a></li>
+                <li><a href="">Read More</a></li>
+                <li><a href="">Need Help</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="location_box">
+        <div><button id="location_box_close">Close</button></div>
+    </div>
+    <div id="search_down">
+        <input type="text" id="nav_search_down" oninput="nav_search_fn()" placeholder="Search for Product">
+    </div>
+    <!-- loginsignup started -->
+    <div id="login_popup">
+        <div id="login_popup_img"><img src="img/login_side.png" alt=""></div>
+        <div>
+            <label for="">Enter Your Number to Login or Signup</label>
+            <input type="text" id="login_phone_data" placeholder="Enter Phone Number*">
+            <input type="text" id="login_name_data" placeholder="Enter Name*">
+            <input type="text" name="" id="login_otp_data" placeholder="Enter OTP">
+            <button id="login_data_submit_button">Continue</button>
+        </div>
+    </div>
+
+
+    <!-- banner addd from here -->
+
+    <div id="cont">
+
+        <div class="banner">
+            <div class="banner_inner">
+                <div class="banner_item banner_item__active">
+                    <img src="https://s.rmjo.in/WP-Web.png" alt="" class="banner_img">
+                    <!-- <div class="banner_caption">
+                    <h1 class="banner_title">Change It As You See Fit</h1>
+                    <p class="banner_description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id cupiditate
+                       corporis laudantium quae velit quam.</p>
+                 </div> -->
+                </div>
+                <div class="banner_item">
+                    <img src="https://s.rmjo.in/AirOKWeb%20(1).png" alt="" class="banner_img">
+                    <!-- </div>
+               <div class="banner_item">
+                 <img src="https://s.rmjo.in/WP-Web.png" alt="" class="banner_img">
+              </div> -->
+                </div>
+
+
+                <div class="banner_indicator">
+                    <button class="banner_dot banner_dot__active"></button>
+                    <button class="banner_dot"></button>
+                    <button class="banner_dot"></button>
+                </div>
+
+                <div class="banner_control">
+                    <button class="banner_button banner_button__prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="banner_button banner_button__next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="covid-warn">
+                <p>
+                    Safety precautions during COVID-19. We’re taking additional steps and precautionary measures to
+                    protect our community from COVID-19. <span><a href="">&nbsp&nbsp Know more ></a></span></p>
+            </div>
+        </div>
+
+
+
+        <div id="items">
+            <div><img src="https://i.ibb.co/HhXHCsB/Screenshot-4335.png" alt="" /></div>
+            <a href="furniture.html">
+
+                <div> <img src="https://i.ibb.co/m0YCPLm/fur.png" alt="" /></div>
+            </a>
+            <a href="appliances.html">
+
+                <div> <img src="https://i.ibb.co/xswBYxk/app.png" alt="" /></div>
+            </a>
+            <div> <img src="https://i.ibb.co/zNdbgpw/ele.png" alt="" /></div>
+            <div><img src="https://i.ibb.co/1zdRzRm/fitness.png" alt="" /></div>
+            <div><img src="https://i.ibb.co/s5QjXKP/essen.png" alt="" /></div>
+        </div>
+        <!-- div 2 nitish started  -->
+
+
+        <!-- div3 started NITISH  -->
+        <div id="div3">
+            <!-- <h2 >There's more</h2>
+            <h2 id="un"> to renting</h2> -->
+            <div id="cont3">
+                <div class="sub3">
+                    <img src="https://i.ibb.co/6r032rM/sub1.jpg" alt="">
+                    <h3>Finest-quality products</h3>
+                    <p>Quality matters to you, and us! That's why we do a strict quality-check for every product.</p>
+                </div>
+
+                <div class="sub3">
+                    <img src="https://i.ibb.co/wMwTZPV/sub2.jpg" alt="">
+                    <h3>Free relocation</h3>
+                    <p>Changing your house or even your city? We'll relocate your rented products for free.</p>
+                </div>
+
+                <div class="sub3">
+                    <img src="https://i.ibb.co/ckv3sKg/sub3.jpg" alt="">
+                    <h3>Free maintenance</h3>
+                    <p>Keeping your rented products in a spick and span condition is on us, so you can sit back and
+                        relax.</p>
+                </div>
+
+                <div class="sub3">
+                    <img src="https://i.ibb.co/dW4yGF7/sub4.jpg" alt="">
+                    <h3>Cancel anytime</h3>
+                    <p>Pay only for the time you use the product and close your subscription without any hassle.</p>
+                </div>
+
+                <div class="sub3">
+                    <img src="https://i.ibb.co/N1W5m0K/sub5.jpg" alt="">
+                    <h3>Easy return on delivery</h3>
+                    <p>If you don't like the product on delivery, you can return it right away—no questions asked.</p>
+                </div>
+
+                <div class="sub3">
+                    <img src="https://i.ibb.co/MN9hLbP/sub6.jpg" alt="">
+                    <h3>Keep upgrading</h3>
+                    <p>Bored of the same product? Upgrade to try another, newer design and enjoy the change!</p>
+                </div>
+
+            </div>
+
+            <a href="">
+                <h2 id="know">KNOW MORE</h2>
+            </a>
+        </div>
+
+        <!-- div4 nitish -->
+
+
+        <div id="nitish_div4">
+
+
+            <div id="div4">
+                <div id="details">
+                    <!-- <h2>Over 1.5 lac</h2> -->
+                    <h2 id="un" style="margin: 40px 0px;">Over 1.5 lac happy subscribers</h2>
+                    <p>Here's what they</p>
+                    <p>have to say about</p>
+                    <p>their RentoMojo</p>
+                    <p>experience.</p>
+
+                    <!-- Next and previous buttons -->
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+
+                <!-- Slideshow container -->
+                <div class="slideshow4">
+
+                    <!-- Full-width images with number and caption text -->
+                    <div class="mySlides4">
+                        <div class="numbertext">1 / 6</div>
+
+                        <img src="https://www.rentomojo.com/public/images/testimonials/kushal-tiwari.jpg">
+                        <h3>Kushal Tiwari</h3>
+                        <p>
+                            Marriage comes with a lot of unavoidable expenses in India and spending a big chunk of your
+                            savings on furniture and white goods could be a big challenge. RentoMojo not just took away
+                            all our worries but in fact went to the extent of spoiling us. Where I could have owned just
+                            some bare essentials after making a huge hole in my pocket or paid unnecessary EMIs, I could
+                            smartly own a lot of stuff which would have come much later on my list. Heartfelt thanks to
+                            the whole Rentomojo team for making our renting experience completely hassle-free. It has
+                            been two great years and I am sure there are many more to come.
+                        </p>
+                    </div>
+
+
+
+
+
+                    <div class="mySlides4">
+                        <div class="numbertext">2 / 6</div>
+
+                        <img src="https://www.rentomojo.com/public/images/testimonials/navin-kumar.jpg">
+                        <h3>Navin Kumar</h3>
+                        <p>
+                            When I moved to Bangalore from Chennai, I went to multiple websites to get a bed until I
+                            found out about Rentomojo. I rented a bed and mattress, just to try it out. They delivered
+                            it within a day and set it up at my place without any hassle. Now I sleep so peacefully that
+                            I always end up being late for work :D
+                        </p>
+                    </div>
+
+
+                    <div class="mySlides4">
+                        <div class="numbertext">3 / 6</div>
+
+                        <img src="https://www.rentomojo.com/public/images/testimonials/anjali-sharma.jpg">
+                        <h3>Anjali Sharma</h3>
+                        <p>
+                            I got to know about RentoMojo through a friend and looked up for AC on their website and
+                            finally rented one. The delivery guys installed the AC in 2 days. And with a such a low
+                            deposit and rent, I didn't have to spend a whole lot for my comfort. Thank you RentoMojo,
+                            for being so easy breezy on my pocket.
+                        </p>
+                    </div>
+
+
+                    <div class="mySlides4">
+                        <div class="numbertext">4 / 6</div>
+
+                        <img src="https://www.rentomojo.com/public/images/testimonials/shreyas-ravetkar.jpg">
+                        <h3>Shreyas Ravetkar</h3>
+                        <p>
+                            Rentomojo was unbelievably helpful. Never thought that setting up a new place would be just
+                            few clicks away. The customer support staff was on their toes to help me. Anytime I need
+                            something for my house, Rentomojo has it. :)
+                        </p>
+                    </div>
+
+
+                    <div class="mySlides4">
+                        <div class="numbertext">5 / 6</div>
+
+                        <img src="https://www.rentomojo.com/public/images/testimonials/nikita-sharma.jpg">
+                        <h3>Nikita Sharma</h3>
+                        <p>
+                            The thought of renting the furniture had never occurred to me. When I saw Rentomojo's
+                            affordable range, I was super excited to try and it was really amazing. From service to
+                            product quality, everything was superb. I don't have to carry the same furniture to every
+                            house I move to and can change the look of my home whenever I want
+                        </p>
+                    </div>
+
+
+
+                    <div class="mySlides4">
+                        <div class="numbertext">6/ 6</div>
+
+                        <img src="https://www.rentomojo.com/public/images/testimonials/manish-srivastava.jpg">
+                        <h3>Manish Srivastava</h3>
+                        <p>
+                            I was suddenly asked to move to Chennai from Bengaluru in couple of days. Everything was
+                            garbled for me and huge tension of getting apartment, buying furnitures, selling while going
+                            back to Bangalore. Thanks to RentoMojo for excellent budgeted plans. With few mouse clicks
+                            and nominal security deposit u are done. No tension for delivery, Rentomojo is a furniture
+                            wish wizard. Also takes care of relocation made my life easy. Happy to be a customer for
+                            Rentomojo. It made my house a happy home!
+                        </p>
+                    </div>
+
+
+
+
+
+
+                </div>
+
+
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+        <!-- footer added 
+ -->
+
+        <div id="cb">
+
+            <div class="p">
+                <h3>RentoMojo: Upgrade To Your Dream Lifestyle At An Unbelievably Low Price!</h3> <br>
+                <p>
+                    RentoMojo is your ticket to a better lifestyle in India. We provide designer furniture, the newest
+                    gadgets, and bestselling appliances on rent in major Indian cities. You can use the best products
+                    available in the market at just a fraction of their retail value. You pay us a small monthly fee,
+                    which becomes lesser the longer you rent from us. <br> <br>
+                    Besides saving you money, we do our best to provide you with an exceptional, super-comfortable
+                    rental experience. Our ordering process is straightforward and efficient. You can order from us in a
+                    matter of minutes from your PC or smartphone. We offer speedy delivery in major Indian cities,
+                    namely Bangalore, Mumbai, Delhi, Chennai, Pune, Hyderabad, Gurgaon, and Noida. <br> <br>
+                    No matter what product you rent from us, we will provide you with several complementary benefits
+                    with it. The benefits range from a yearly product swap option to a periodic free maintenance
+                    service. These are benefits no regular retailer offers. Start renting now! <br>
+                    Read More </p> <br> <br>
+            </div>
+
+
+            <div id="footer">
+
+
+
+                <div>
+                    <ol>
+                        <h3>RENTOMOJO</h3>
+                        <li><a href="">About Us</a></li>
+                        <li><a href="">Culture</a></li>
+                        <li><a href="">Investors</a></li>
+                        <li><a href="">Careers</a></li>
+                        <li><a href="">Contact</a></li>
+                        <li><a href="">Our Benefits</a></li>
+                        <li><a href="">Sitemap</a></li>
+                    </ol>
+                </div>
+
+
+                <div>
+                    <ol>
+                        <h3>INFORMATION</h3>
+                        <li><a href="">Blog</a></li>
+                        <li><a href="">FAQs</a></li>
+                        <li><a href="">Document Required</a></li>
+                    </ol>
+                </div>
+
+                <div>
+                    <ol>
+                        <h3>POLICIES</h3>
+                        <li><a href="">Shipping Policy</a></li>
+                        <li><a href="">Cancellation and Return</a></li>
+                        <li><a href="">Privacy Policy</a></li>
+                        <li><a href="">Press</a></li>
+                        <li><a href="">Rental Terms and Conditions</a></li>
+                        <li><a href="">Referral Terms and Conditions</a></li>
+                    </ol>
+                </div>
+                <div class="C">
+
+                    <ol>
+
+
+                        <h3>NEED HELP ?</h3>
+                        <button style="margin-top: 20px;">Chat with us (9AM - 6PM</button>
+                        <P style="margin-top: 20px;">jo@rentomojo.com</P>
+                        <p style="margin-top: 20px;">Download App</p>
+
+                        <div style="margin-top: 20px;">
+
+                            <img src="https://i.ibb.co/q9vV8nb/Whats-App-Image-2022-08-23-at-11-44-54-PM.jpg" alt="">
+                            <img src="https://i.ibb.co/fxYZtyr/Whats-App-Image-2022-08-23-at-11-44-54-PM-1.jpg" alt="">
+                        </div>
+
+
+                    </ol>
+
+
+
+                </div>
+
+            </div>
+
+
+
+
+
+        </div>
+
+        <!-- //medium screen -->
+
+        <div id="med">
+            <button class="outer">
+                <h4>RENTOMOJO</h4>
+            </button>
+            <div class="inner">
+                <p>
+                <ol>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="">Culture</a></li>
+                    <li><a href="">Investors</a></li>
+                    <li><a href="">Careers</a></li>
+                    <li><a href="">Contact</a></li>
+                    <li><a href="">Our Benefits</a></li>
+                    <li><a href="">Sitemap</a></li>
+                </ol>
+                </p>
+            </div>
+        
+            <button class="outer">
+                <h4>INFORMATION</h4>
+            </button>
+            <div class="inner">
+                <p>
+                <ol>
+                    <li><a href="">Blog</a></li>
+                    <li><a href="">FAQs</a></li>
+                    <li><a href="">Document Required</a></li>
+                </ol>
+                </p>
+            </div>
+        
+            <button class="outer">
+                <h4>POLICIES</h4>
+            </button>
+            <div class="inner">
+                <p>
+                <ol>
+                    <li><a href="">Shipping Policy</a></li>
+                    <li><a href="">Cancellation and Return</a></li>
+                    <li><a href="">Privacy Policy</a></li>
+                    <li><a href="">Press</a></li>
+                    <li><a href="">Rental Terms and Conditions</a></li>
+                    <li><a href="">Referral Terms and Conditions</a></li>
+                </ol>
+                </p>
+            </div>
+        
+            <button class="outer">
+                <h4>NEED HELP ?</h4>
+            </button>
+            <div class="inner">
+                <p>
+                <ol>
+                    <button style="margin-top: 20px;">Chat with us (9AM - 6PM</button>
+                    <P style="margin-top: 20px;">jo@rentomojo.com</P>
+                    <p style="margin-top: 20px;">Download App</p>
+        
+                    <div style="margin-top: 20px;">
+        
+                        <img src="https://i.ibb.co/q9vV8nb/Whats-App-Image-2022-08-23-at-11-44-54-PM.jpg" alt="">
+                        <img src="https://i.ibb.co/fxYZtyr/Whats-App-Image-2022-08-23-at-11-44-54-PM-1.jpg" alt="">
+                    </div>
+        
+                </ol>
+        
+        
+                </p>
+            </div>
+        
+        
+            </div>
+
+        <!-- <hr> -->
+
+
+        <div id="bottom_footer">
+
+
+
+            <div>
+                <p>&#169 2022. Edunetwork Pvt.Ltd</p>
+            </div>
+
+
+            <div class="B">
+
+
+                <a href="https://twitter.com/mondaydotcom"><img
+                        src="https://cdn2.iconfinder.com/data/icons/social-icons-grey/512/TWITTER-128.png" alt=""></a>
+                <a href="https://www.linkedin.com/company/2525169/"><img
+                        src="https://cdn2.iconfinder.com/data/icons/social-icons-grey/512/LINKEDIN-128.png" alt=""></a>
+                <a href="https://www.facebook.com/mondaydotcom"><img
+                        src="https://cdn2.iconfinder.com/data/icons/social-icons-grey/512/FB-128.png" alt=""></a>
+                <a href="https://www.youtube.com/channel/UCA9UvBiKHly15rN8u_Km3BQ"> <img
+                        src="https://cdn2.iconfinder.com/data/icons/social-icons-grey/512/YOUTUBE-128.png" alt=""></a>
+                <a href="https://www.instagram.com/mondaydotcom"> <img
+                        src="https://cdn2.iconfinder.com/data/icons/social-icons-grey/512/INSTAGRAM-128.png" alt=""></a>
+                <a href="https://www.tiktok.com/@mondaydotcom"> <img
+                        src="https://cdn2.iconfinder.com/data/icons/social-icons-grey/512/bing-128.png" alt=""></a>
+            </div>
+
+
+            <div style="margin-left:155px">
+
+                <p>Go to Up</p>
+
+            </div>
+        </div>
+
+
+
+</body>
+
+
+<script>
+    // banner data add from here
+
+
+    let onSlide = false;
+
+    window.addEventListener("load", () => {
+        autoSlide();
+
+        let dots = document.querySelectorAll(".banner_dot");
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].addEventListener("click", () => slide(i));
+        }
+
+        let btnPrev = document.querySelector(".banner_button__prev");
+        let btnNext = document.querySelector(".banner_button__next");
+        btnPrev.addEventListener("click", () => slide(getItemActiveIndex() - 1));
+        btnNext.addEventListener("click", () => slide(getItemActiveIndex() + 1));
+    })
+
+    function autoSlide() {
+        setInterval(() => {
+            slide(getItemActiveIndex() + 1);
+        }, 3000);
+    }
+
+    function slide(toIndex) {
+        if (onSlide)
+            return;
+        onSlide = true;
+
+        let itemsArr = Array.from(document.querySelectorAll(".banner_item"));
+        let itemActive = document.querySelector(".banner_item__active");
+        let itemActiveIndex = itemsArr.indexOf(itemActive);
+        let newItemActive = null;
+
+        if (toIndex > itemActiveIndex) {
+            // check if toIndex exceeds the number of banner items
+            if (toIndex >= itemsArr.length) {
+                toIndex = 0;
+            }
+
+            newItemActive = itemsArr[toIndex];
+
+            // start transition
+            newItemActive.classList.add("banner_item__pos_next");
+            setTimeout(() => {
+                newItemActive.classList.add("banner_item__next");
+                itemActive.classList.add("banner_item__next");
+            }, 20);
+        } else {
+            // check if toIndex exceeds the number of banner items
+            if (toIndex < 0) {
+                toIndex = itemsArr.length - 1;
+            }
+
+            newItemActive = itemsArr[toIndex];
+
+            // start transition
+            newItemActive.classList.add("banner_item__pos_prev");
+            setTimeout(() => {
+                newItemActive.classList.add("banner_item__prev");
+                itemActive.classList.add("banner_item__prev");
+            }, 20);
+        }
+
+        // remove all transition class and switch active class
+        newItemActive.addEventListener("transitionend", () => {
+            itemActive.className = "banner_item";
+            newItemActive.className = "banner_item banner_item__active";
+            onSlide = false;
+        }, {
+            once: true
+        });
+
+        slideIndicator(toIndex);
+    }
+
+    function getItemActiveIndex() {
+        let itemsArr = Array.from(document.querySelectorAll(".banner_item"));
+        let itemActive = document.querySelector(".banner_item__active");
+        let itemActiveIndex = itemsArr.indexOf(itemActive);
+        return itemActiveIndex;
+    }
+
+    function slideIndicator(toIndex) {
+        let dots = document.querySelectorAll(".banner_dot");
+        let dotActive = document.querySelector(".banner_dot__active");
+        let newDotActive = dots[toIndex];
+
+        dotActive.classList.remove("banner_dot__active");
+        newDotActive.classList.add("banner_dot__active");
+    }
+
+    // banner end here  
+
+    // div4 started nitish 
+
+
+    let slideI = 1;
+    showSlides(slideI);
+
+    // Next/previous controls
+    function plusSlides(n) {
+        showSlides(slideI += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+        showSlides(slideI = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides4");
+
+        if (n > slides.length) { slideI = 1 }
+        if (n < 1) { slideI = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+
+        slides[slideI - 1].style.display = "block";
+
+    }
+    //   div4 nitish end 
+    let dropdown_menu_open = document.getElementById("dropdown_menu_open");
+    dropdown_menu_open.addEventListener("click", function () {
+        let menu = document.getElementById("menu");
+        menu.style.display = "block";
+    });
+    let dropdown_menu_close = document.getElementById("dropdown_menu_close");
+    dropdown_menu_close.addEventListener("click", function () {
+        let menu = document.getElementById("menu");
+        menu.style.display = "none";
+    });
+    let location_data = [];
+    class location_obj {
+        constructor(name, img) {
+            this.name = name;
+            this.img = img;
+        }
+    }
+    let city1 = new location_obj("Hyderabad", "img/hyderabad_location.png");
+    let city2 = new location_obj("Chennai", "img/chennai_location.png");
+    let city3 = new location_obj("Gurgaon", "img/gurgaon_location.png");
+    let city4 = new location_obj("Noida", "img/noida_location.png");
+    let city5 = new location_obj("Delhi", "img/delhi_location.png");
+    let city6 = new location_obj("Mumbai", "img/mumbai_location.png");
+    let city7 = new location_obj("Pune", "img/pune_location.png");
+
+    location_data.push(city1, city2, city3, city4, city5, city6, city7);
+    showInLocationBox(location_data);
+    function showInLocationBox(data) {
+        let box = document.getElementById("location_box");
+        data.forEach(function (e) {
+            let div = document.createElement("div");
+            box.append(div);
+            let img = document.createElement("img");
+            img.src = e.img;
+            div.append(img);
+            div.addEventListener("click", function () {
+                let p = document.getElementById("change_location");
+                p.innerText = e.name;
+            })
+        })
+    }
+    let location_box_open = document.getElementById("location");
+    location_box_open.addEventListener("click", function () {
+        let box = document.getElementById("location_box");
+        box.style.display = "grid";
+    });
+    let location_box_close = document.getElementById("location_box_close");
+    location_box_close.addEventListener("click", function () {
+        let box = document.getElementById("location_box");
+        box.style.display = "none";
+    });
+
+    // search function
+    function nav_search_fn(){
+        let se=document.getElementById("nav_search").value;
+        if(se=="bed"){
+            window.location.href="furniture.html";
+        }else if(se=="refrigerator"){
+            window.location.href="appliances.html";
+
+        }
+    }
+    //cart data
+
+    let cartArr=JSON.parse(localStorage.getItem("cartpage")) || []; 
+    function cart_clicked(){
+        let login_status=JSON.parse(localStorage.getItem("loginsuccess"));
+        if(login_status==true){
+            window.location.href="cart.html";
+        }else{
+            alert("Login first!!");
+        }
+    }
+
+    // login signup started
+
+
+    function show_login_popup() {
+        let menu = document.getElementById("menu");
+        menu.style.display = "none";
+        let but = document.getElementById("home_login_button");
+        if (but.innerText == "LOGIN/SIGNUP") {
+            let div = document.getElementById("login_popup");
+            div.style.display = "flex";
+        } else {
+            localStorage.setItem("user_login_data", null);
+            localStorage.setItem("loginsuccess", false);
+            but.innerText = "LOGIN/SIGNUP";
+            alert("Logout Success!!!");
+        }
+    }
+    document.addEventListener("mouseup", function (e) {
+        let div = document.getElementById("login_popup");
+        if (!div.contains(e.target)) {
+            div.style.display = "none";
+        }
+    })
+    let login_data_submit_button = document.getElementById("login_data_submit_button");
+    login_data_submit_button.addEventListener("click", function () {
+        let phone = document.getElementById("login_phone_data").value;
+        let name = document.getElementById("login_name_data").value;
+        let otp = document.getElementById("login_otp_data").value;
+        if (phone == "" || name == "" || otp == "") {
+            alert("Fill All Inputs");
+        } else {
+            if (otp == "1234") {
+                let obj = {
+                    name: name,
+                    mobile: phone,
+                }
+                localStorage.setItem("user_login_data", JSON.stringify(obj));
+                localStorage.setItem("loginsuccess", true);
+                show_name_login_user();
+                alert("Login successfull");
+
+            } else {
+                alert("OTP not match");
+            }
+        }
+    })
+    show_name_login_user();
+
+    function show_name_login_user() {
+        if (localStorage.getItem("user_login_data") == null) {
+            localStorage.setItem("loginsuccess", false);
+        } else {
+            localStorage.setItem("loginsuccess", true);
+            let details = JSON.parse(localStorage.getItem("user_login_data"));
+            let but = document.getElementById("home_login_button");
+            but.innerText = details.name;
+        }
+    }
+
+// div2 nitish home 
+
+//md ali-medium screen footer
+
+
+    let acc = document.getElementsByClassName("outer");
+    let i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            /* Toggle between adding and removing the "active" class,
+            to highlight the button that controls the inner */
+            this.classList.toggle("active");
+
+            /* Toggle between hiding and showing the active inner */
+            var inner = this.nextElementSibling;
+            if (inner.style.display === "block") {
+                inner.style.display = "none";
+            } else {
+                inner.style.display = "block";
+            }
+        });
+    }
+
+    function  goToHome(){
+        window.location.href="index.html";
+    }
+
+
+
+</script>
+
+</html>
