@@ -333,6 +333,27 @@
             border: 1px solid rgb(229, 57, 57);
             cursor: pointer;
         }
+
+        #cart{
+            padding: 20px 0px;
+            display:grid;
+            grid-template-columns: repeat(4,1fr);
+        }
+
+        #cartItem{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .remove_btn{
+            padding: 10px 15px;
+            font-size: 12px;
+            border: none;
+            background-color: red;
+            color: white;
+            border-radius: 10px;
+        }
     </style>
 </head>
 
@@ -578,6 +599,7 @@
                 box.append(div);
                 let img=document.createElement("img");
                 img.src=e.img;
+                img.style.width="85%"
                 let name=document.createElement("h2");
                 name.innerText=e.title;
                 let price=document.createElement("h3");
@@ -589,12 +611,26 @@
                     cartArr.splice(i,1);
                     localStorage.setItem("cartpage",JSON.stringify(cartArr));
                     displayCart(cartArr);
+                    window.location.href="cart.html"
                 });
+                remove.setAttribute("class","remove_btn")
                 div.append(img,name,price,remove);
             });
             tot1.innerText="Total is :- $"+tot;
         }
         displayCart(cartArr);
+    }
+
+    let empC=document.getElementById("emptyCart")
+    let dataWithCart= document.getElementById("cart")
+    
+    if(cartArr.length===0){
+        empC.style.display="block"
+        dataWithCart.style.visibility="hidden"
+    }else{
+        empC.style.display="none"
+        dataWithCart.style.visibility="visible"
+
     }
 </script>
 </html>
