@@ -11,7 +11,7 @@ Areas of Responsibilities- Built Footer and two product pages with sub page and 
 
 Github Link : https://github.com/mdali-11/Rentomojo-clone
 
-Netlify Link : https://roaring-scone-4c2c2e.netlify.app/
+Netlify Link : https://scintillating-chaja-eb9e34.netlify.app/
 
 
 <img src="https://github.com/mdali-11/weather-app/blob/main/weather/pics/Screenshot%20(13131).png" alt="ss-wa" />
